@@ -8,9 +8,9 @@ public class Main
 		base_regles.loadFileBaseRegle();
 		base_faits.loadFileBaseFait();
 		
-		Chainage_avant chainage_avant = new Chainage_avant(base_regles, base_faits);
-		chainage_avant.evaluer();
-		chainage_avant.afficherEvolution();
-		System.out.println(chainage_avant.getFaits().estAccepte());
+		Chainage_abstrait chainage = new Chainage_avant(base_regles, base_faits);
+		chainage.evaluer();
+		chainage.afficherEvolution();
+		System.out.println(chainage.getFaits().estAccepte());
 	}
 }
