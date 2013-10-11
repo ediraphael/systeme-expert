@@ -1,0 +1,8 @@
+poste_responsabilite ET langue_facile ET neerlandais_parle : candidat_dynamique
+langue_facile ET anglais_parle : bonne_adaptabilite
+est_slave ET candidat_dynamique : bonne_adaptabilite
+poste_responsabilite : capacite_leadership
+langue_facile : neerlandais_parle
+bonne_adaptabilite ET capacite_leadership : accepte
+est_slave : langue_facile
+capacite_leadership ET est_slave : bonne_adaptabilite
