@@ -29,10 +29,16 @@ public class Base_de_regle
 
 	public boolean addRegle(Regle regle)
 	{
-		if(this.regles.add(regle))
+		if (!this.regles.contains(regle))
 		{
-			Configuration.afficherTraceAjoutRegle(regle);
-			return true;
+			if (this.regles.add(regle))
+			{
+				Configuration.afficherTraceAjoutRegle(regle);
+				return true;
+			}
+		} else
+		{
+			Configuration.afficherTraceErreurDejaPresentAjoutRegle(regle);
 		}
 		return false;
 	}
@@ -59,7 +65,7 @@ public class Base_de_regle
 						for (String cond : condition)
 						{
 							Litteral lit_cond = new Litteral(cond);
-							if(!Liste_litteral.contains(lit_cond))
+							if (!Liste_litteral.contains(lit_cond))
 							{
 								Liste_litteral.add(new Litteral(cond.trim()));
 							}
@@ -74,7 +80,7 @@ public class Base_de_regle
 						for (String conc : conclusion)
 						{
 							Litteral lit_conc = new Litteral(conc);
-							if(!Liste_litteral.contains(lit_conc))
+							if (!Liste_litteral.contains(lit_conc))
 							{
 								Liste_litteral.add(new Litteral(conc.trim()));
 							}

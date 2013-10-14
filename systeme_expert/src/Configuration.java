@@ -11,11 +11,27 @@ public class Configuration
 		}
 	}
 	
+	public static void afficherTraceErreurDejaPresentAjoutFait(Object object)
+	{
+		if(Configuration.AFFICHER_TRACE)
+		{
+			System.out.println("ERREUR d'ajout, fait déjà présent : " + object);
+		}
+	}
+	
 	public static void afficherTraceAjoutRegle(Object object)
 	{
 		if(Configuration.AFFICHER_TRACE)
 		{
 			System.out.println("Ajout à la base de regle de : "+object);
+		}
+	}
+	
+	public static void afficherTraceErreurDejaPresentAjoutRegle(Object object)
+	{
+		if(Configuration.AFFICHER_TRACE)
+		{
+			System.out.println("ERREUR d'ajout, regle déjà présente : "+object);
 		}
 	}
 	
@@ -32,6 +48,30 @@ public class Configuration
 		if(Configuration.AFFICHER_TRACE)
 		{
 			System.out.println("Déclenchement de la regle : " + object);
+		}
+	}
+	
+	public static void afficherTraceErreurDejaDeclencherDeclenchementRegle(Object object)
+	{
+		if(Configuration.AFFICHER_TRACE)
+		{
+			System.out.println("Erreur de déclenchement, règle déjà déclenché : " + object);
+		}
+	}
+	
+	public static void afficherTraceErreurConditionsDeclenchementRegle(Object object)
+	{
+		if(Configuration.AFFICHER_TRACE)
+		{
+			System.out.println("Erreur de déclenchement, règle déjà déclenché : " + object);
+		}
+	}
+	
+	public static void afficherTraceNoteDeclenchementInutileDeclenchementRegle(Object object)
+	{
+		if(Configuration.AFFICHER_TRACE)
+		{
+			System.out.println("Note : Déclehement inutile, conclusion déjà présente : " + object);
 		}
 	}
 	

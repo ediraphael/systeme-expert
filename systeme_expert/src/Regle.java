@@ -12,7 +12,7 @@ public class Regle
 		this.conclusion = conclusion;
 		this.estDeclenche = false;
 	}
-	
+
 	public Regle()
 	{
 		this.condition = new Vector<Litteral>();
@@ -70,7 +70,7 @@ public class Regle
 		if (base_faits.containsAll(this.condition) && !this.estDeclenche)
 		{
 			Configuration.afficherTraceDeclenchementRegle(this);
-			this.estDeclenche=true;
+			this.estDeclenche = true;
 			base_faits.addAll(conclusion);
 			return base_faits;
 		} else
@@ -78,32 +78,60 @@ public class Regle
 			return base_faits;
 		}
 	}
-	
+
 	public boolean declencher(Base_de_fait base_faits)
 	{
-		if (base_faits.getFaits().containsAll(this.condition) && !this.estDeclenche)
+		if (!this.estDeclenche)
 		{
-			Configuration.afficherTraceDeclenchementRegle(this);
-			this.estDeclenche=true;
-			base_faits.addAll(conclusion);
-			return true;
+			if (base_faits.getFaits().containsAll(this.condition))
+			{
+				Configuration.afficherTraceDeclenchementRegle(this);
+				if(base_faits.getFaits().containsAll(this.conclusion))
+				{
+					Configuration.afficherTraceNoteDeclenchementInutileDeclenchementRegle(this);
+				}
+				this.setEstDeclenche(true);
+				base_faits.addAll(conclusion);
+				return true;
+			}else
+			{
+				Configuration.afficherTraceErreurConditionsDeclenchementRegle(this);
+			}
 		} else
+		{
+			Configuration.afficherTraceErreurDejaDeclencherDeclenchementRegle(this);
+		}
+		return false;
+	}
+
+	@Override
+	public boolean equals(Object obj)
+	{
+		if (!(obj instanceof Regle))
+		{
+			return false;
+		} else if (!((Regle) obj).getConclusion().equals(this.getConclusion()))
+		{
+			return false;
+		} else if (!((Regle) obj).getCondition().equals(this.getCondition()))
 		{
 			return false;
 		}
+		return true;
 	}
-	
+
+	@Override
 	public String toString()
 	{
-		String chaine="";
+		String chaine = "";
 		for (Litteral lit : condition)
 		{
-			chaine+= lit + " ";
+			chaine += lit + " ";
 		}
-		chaine+= "-> ";
+		chaine += "-> ";
 		for (Litteral lit : conclusion)
 		{
-			chaine+= lit + " ";
+			chaine += lit + " ";
 		}
 		return chaine;
 	}

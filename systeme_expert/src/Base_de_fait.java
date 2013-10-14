@@ -27,25 +27,37 @@ public class Base_de_fait
 		this.faits = faits;
 	}
 
-	public boolean addFait(Litteral litteral)
+	public Litteral addFait(Litteral litteral)
 	{
-		if(faits.add(litteral))
+		if(!faits.contains(litteral))
 		{
-			Configuration.afficherTraceAjoutFait(litteral);
-			return true;
+			if (faits.add(litteral))
+			{
+				Configuration.afficherTraceAjoutFait(litteral);
+				return litteral;
+			}
+		}else
+		{
+			Configuration.afficherTraceErreurDejaPresentAjoutFait(litteral);
 		}
-		return false;
+		return null;
 	}
-	
-	public boolean addAll(Vector<Litteral> litteraux)
+
+	public Vector<Litteral> addAll(Vector<Litteral> litteraux)
 	{
-		if(faits.addAll(litteraux))
+		Vector<Litteral> retour = new Vector<Litteral>();
+		Litteral lit;
+		for (Litteral litteral : litteraux)
 		{
-			Configuration.afficherTraceAjoutFaits(litteraux);
-			return true;
+			lit = this.addFait(litteral);
+			if(lit!=null)
+			{
+				retour.add(lit);
+			}
 		}
-		return false;
+		return retour;
 	}
+
 	public void loadFileBaseFait()
 	{
 		try
@@ -55,9 +67,9 @@ public class Base_de_fait
 			{
 				String line = null;
 				while ((line = input.readLine()) != null)
-				{	
+				{
 					Litteral lit_conc = new Litteral(line);
-					if(!Liste_litteral.contains(lit_conc))
+					if (!Liste_litteral.contains(lit_conc))
 					{
 						Liste_litteral.add(new Litteral(line.trim()));
 					}
@@ -79,17 +91,17 @@ public class Base_de_fait
 			ex.printStackTrace();
 		}
 	}
-	
-	/*public boolean estAccepte()
-	{
-		return this.faits.contains(Litteral.accepte);
-	}*/
+
+	/*
+	 * public boolean estAccepte() { return
+	 * this.faits.contains(Litteral.accepte); }
+	 */
 
 	@SuppressWarnings("unchecked")
 	@Override
 	protected Base_de_fait clone() throws CloneNotSupportedException
 	{
-		return new Base_de_fait((Vector<Litteral>)this.faits.clone());
+		return new Base_de_fait((Vector<Litteral>) this.faits.clone());
 	}
-	
+
 }
