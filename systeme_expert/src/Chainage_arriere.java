@@ -8,6 +8,7 @@ public class Chainage_arriere extends Chainage_abstrait
 
 	public void evaluer()
 	{
+		System.out.println("totot");
 		// TODO Auto-generated method stub
 		
 	}	
