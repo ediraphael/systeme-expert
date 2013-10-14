@@ -21,7 +21,6 @@ public class Chainage_avant extends Chainage_abstrait
 				{
 					// nbinf++;
 					regle.declencher(this.getFaits());
-					this.getFaits().setFaits(regle.declencher(this.getFaits().getFaits()));
 					inf = true;
 				}
 			}
