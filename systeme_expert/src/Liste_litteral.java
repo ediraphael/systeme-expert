@@ -10,10 +10,12 @@ public class Liste_litteral
 		return liste_litteral;
 	}
 	
-	static void add(Litteral lit)
+	static void addLitteral(Litteral lit)
 	{
+		Configuration.afficherTraceComplementDebut("Liste_litteral:addLitteral");
 		liste_litteral.add(lit);
 		Configuration.afficherTraceAjoutLitteral(lit);
+		Configuration.afficherTraceComplementFin("Liste_litteral:addLitteral");
 	}
 	
 	static boolean contains(Litteral lit)

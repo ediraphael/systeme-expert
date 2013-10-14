@@ -67,20 +67,20 @@ public class Regle
 
 	public Vector<Litteral> declencher(Vector<Litteral> base_faits)
 	{
+		Configuration.afficherTraceComplementDebut("Regle:declencher");
 		if (base_faits.containsAll(this.condition) && !this.estDeclenche)
 		{
 			Configuration.afficherTraceDeclenchementRegle(this);
 			this.estDeclenche = true;
 			base_faits.addAll(conclusion);
-			return base_faits;
-		} else
-		{
-			return base_faits;
-		}
+		} 
+		Configuration.afficherTraceComplementFin("Regle:declencher");
+		return base_faits;
 	}
 
 	public boolean declencher(Base_de_fait base_faits)
 	{
+		Configuration.afficherTraceComplementDebut("Regle:declencher");
 		if (!this.estDeclenche)
 		{
 			if (base_faits.getFaits().containsAll(this.condition))
@@ -91,7 +91,8 @@ public class Regle
 					Configuration.afficherTraceNoteDeclenchementInutileDeclenchementRegle(this);
 				}
 				this.setEstDeclenche(true);
-				base_faits.addAll(conclusion);
+				base_faits.addAllFait(conclusion);
+				Configuration.afficherTraceComplementFin("Regle:declencher");
 				return true;
 			}else
 			{
@@ -101,6 +102,7 @@ public class Regle
 		{
 			Configuration.afficherTraceErreurDejaDeclencherDeclenchementRegle(this);
 		}
+		Configuration.afficherTraceComplementFin("Regle:declencher");
 		return false;
 	}
 

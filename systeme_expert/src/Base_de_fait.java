@@ -29,22 +29,26 @@ public class Base_de_fait
 
 	public Litteral addFait(Litteral litteral)
 	{
+		Configuration.afficherTraceComplementDebut("Base_de_fait:addFait");
 		if(!faits.contains(litteral))
 		{
 			if (faits.add(litteral))
 			{
 				Configuration.afficherTraceAjoutFait(litteral);
+				Configuration.afficherTraceComplementFin("Base_de_fait:addFait");
 				return litteral;
 			}
 		}else
 		{
 			Configuration.afficherTraceErreurDejaPresentAjoutFait(litteral);
 		}
+		Configuration.afficherTraceComplementFin("Base_de_fait:addFait");
 		return null;
 	}
 
-	public Vector<Litteral> addAll(Vector<Litteral> litteraux)
+	public Vector<Litteral> addAllFait(Vector<Litteral> litteraux)
 	{
+		Configuration.afficherTraceComplementDebut("Base_de_fait:addAllFait");
 		Vector<Litteral> retour = new Vector<Litteral>();
 		Litteral lit;
 		for (Litteral litteral : litteraux)
@@ -55,11 +59,13 @@ public class Base_de_fait
 				retour.add(lit);
 			}
 		}
+		Configuration.afficherTraceComplementFin("Base_de_fait:addAllFait");
 		return retour;
 	}
 
 	public void loadFileBaseFait()
 	{
+		Configuration.afficherTraceComplementDebut("Base_de_fait:loadFileBaseFait");
 		try
 		{
 			BufferedReader input = new BufferedReader(new FileReader("base_fait.txt"));
@@ -71,7 +77,7 @@ public class Base_de_fait
 					Litteral lit_conc = new Litteral(line);
 					if (!Liste_litteral.contains(lit_conc))
 					{
-						Liste_litteral.add(new Litteral(line.trim()));
+						Liste_litteral.addLitteral(new Litteral(line.trim()));
 					}
 					for (Litteral litteral : Liste_litteral.values())
 					{
@@ -90,6 +96,7 @@ public class Base_de_fait
 		{
 			ex.printStackTrace();
 		}
+		Configuration.afficherTraceComplementFin("Base_de_fait:loadFileBaseFait");
 	}
 
 	/*

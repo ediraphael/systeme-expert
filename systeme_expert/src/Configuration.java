@@ -4,7 +4,32 @@ public class Configuration
 	public static boolean AFFICHER_TRACE_REGLE = true;
 	public static boolean AFFICHER_TRACE_FAIT = true;
 	public static boolean AFFICHER_TRACE_LITTERAL = true;
+	public static boolean AFFICHER_TRACE_COMPLEMENT = false;
 
+	public static void afficherTraceComplementDebut(Object object)
+	{
+		if (AFFICHER_TRACE && AFFICHER_TRACE_COMPLEMENT)
+		{
+			System.out.println("------------Début: " + object);
+		}
+	}
+	
+	public static void afficherTraceComplementFin(Object object)
+	{
+		if (AFFICHER_TRACE && AFFICHER_TRACE_COMPLEMENT)
+		{
+			System.out.println("------------Fin: " + object+"\n");
+		}
+	}
+	
+	public static void afficherTraceComplement(Object object)
+	{
+		if (AFFICHER_TRACE && AFFICHER_TRACE_COMPLEMENT)
+		{
+			System.out.println("-- " + object);
+		}
+	}
+	
 	public static void afficherTraceAjoutFait(Object object)
 	{
 		if (AFFICHER_TRACE && AFFICHER_TRACE_FAIT)

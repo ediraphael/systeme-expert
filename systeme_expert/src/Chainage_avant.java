@@ -7,6 +7,7 @@ public class Chainage_avant extends Chainage_abstrait
 
 	public void evaluer()
 	{
+		Configuration.afficherTraceComplementDebut("Chainage_avant:evaluer");
 		boolean inf = true;
 		boolean dec = false;
 		// int nbinf = 0;
@@ -25,5 +26,6 @@ public class Chainage_avant extends Chainage_abstrait
 				}
 			}
 		}
+		Configuration.afficherTraceComplementFin("Chainage_avant:evaluer");
 	}
 }
