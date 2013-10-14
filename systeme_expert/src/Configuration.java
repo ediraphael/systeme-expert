@@ -1,7 +1,7 @@
 
 public class Configuration
 {
-	public static boolean AFFICHER_TRACE=true;
+	public static boolean AFFICHER_TRACE=false;
 	
 	public static void afficherTraceAjoutFait(Object object)
 	{
@@ -23,7 +23,7 @@ public class Configuration
 	{
 		if(Configuration.AFFICHER_TRACE)
 		{
-			System.out.println("Ajout à la liste de litteral de :" + object);
+			System.out.println("Ajout à la liste de litteral de : " + object);
 		}
 	}
 	
