@@ -34,4 +34,12 @@ public class Configuration
 			System.out.println("Déclenchement de la regle : " + object);
 		}
 	}
+	
+	public static void afficherTraceAjoutFaits(Object object)
+	{
+		if(Configuration.AFFICHER_TRACE)
+		{
+			System.out.println("Ajout des faits à la base de fait : " + object);
+		}
+	}
 }

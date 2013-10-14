@@ -79,6 +79,20 @@ public class Regle
 		}
 	}
 	
+	public boolean declencher(Base_de_fait base_faits)
+	{
+		if (base_faits.getFaits().containsAll(this.condition) && !this.estDeclenche)
+		{
+			Configuration.afficherTraceDeclenchementRegle(this);
+			this.estDeclenche=true;
+			base_faits.addAll(conclusion);
+			return true;
+		} else
+		{
+			return false;
+		}
+	}
+	
 	public String toString()
 	{
 		String chaine="";

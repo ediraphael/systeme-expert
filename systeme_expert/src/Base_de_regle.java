@@ -29,7 +29,12 @@ public class Base_de_regle
 
 	public boolean addRegle(Regle regle)
 	{
-		return this.regles.add(regle);
+		if(this.regles.add(regle))
+		{
+			Configuration.afficherTraceAjoutRegle(regle);
+			return true;
+		}
+		return false;
 	}
 
 	public void loadFileBaseRegle()
@@ -81,8 +86,7 @@ public class Base_de_regle
 								}
 							}
 						}
-						this.regles.add(regle);
-						Configuration.afficherTraceAjoutRegle(regle);
+						this.addRegle(regle);
 					}
 				}
 			} finally

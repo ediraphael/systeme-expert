@@ -29,9 +29,23 @@ public class Base_de_fait
 
 	public boolean addFait(Litteral litteral)
 	{
-		return faits.add(litteral);
+		if(faits.add(litteral))
+		{
+			Configuration.afficherTraceAjoutFait(litteral);
+			return true;
+		}
+		return false;
 	}
-
+	
+	public boolean addAll(Vector<Litteral> litteraux)
+	{
+		if(faits.addAll(litteraux))
+		{
+			Configuration.afficherTraceAjoutFaits(litteraux);
+			return true;
+		}
+		return false;
+	}
 	public void loadFileBaseFait()
 	{
 		try
@@ -51,7 +65,7 @@ public class Base_de_fait
 					{
 						if (litteral.toString().equals(line.trim()))
 						{
-							this.faits.add(litteral);
+							this.addFait(litteral);
 						}
 					}
 
