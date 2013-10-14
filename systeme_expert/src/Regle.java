@@ -69,6 +69,7 @@ public class Regle
 	{
 		if (base_faits.containsAll(this.condition) && !this.estDeclenche)
 		{
+			Configuration.afficherTraceDeclenchementRegle(this);
 			this.estDeclenche=true;
 			base_faits.addAll(conclusion);
 			return base_faits;
