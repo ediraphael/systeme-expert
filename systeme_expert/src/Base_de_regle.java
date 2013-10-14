@@ -53,7 +53,12 @@ public class Base_de_regle
 						conclusion = composition[1].split(" ET ");
 						for (String cond : condition)
 						{
-							for (Litteral litteral : Litteral.values())
+							Litteral lit_cond = new Litteral(cond);
+							if(!Liste_litteral.contains(lit_cond))
+							{
+								Liste_litteral.add(new Litteral(cond.trim()));
+							}
+							for (Litteral litteral : Liste_litteral.values())
 							{
 								if (litteral.toString().equals(cond.trim()))
 								{
@@ -63,7 +68,12 @@ public class Base_de_regle
 						}
 						for (String conc : conclusion)
 						{
-							for (Litteral litteral : Litteral.values())
+							Litteral lit_conc = new Litteral(conc);
+							if(!Liste_litteral.contains(lit_conc))
+							{
+								Liste_litteral.add(new Litteral(conc.trim()));
+							}
+							for (Litteral litteral : Liste_litteral.values())
 							{
 								if (litteral.toString().equals(conc.trim()))
 								{

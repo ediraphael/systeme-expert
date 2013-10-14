@@ -77,4 +77,19 @@ public class Regle
 			return base_faits;
 		}
 	}
+	
+	public String toString()
+	{
+		String chaine="";
+		for (Litteral lit : condition)
+		{
+			chaine+= lit + " ";
+		}
+		chaine+= "->";
+		for (Litteral lit : conclusion)
+		{
+			chaine+= lit + " ";
+		}
+		return chaine;
+	}
 }

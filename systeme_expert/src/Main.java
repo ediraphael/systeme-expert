@@ -1,3 +1,5 @@
+import java.util.Vector;
+
 
 public class Main
 {
@@ -11,6 +13,6 @@ public class Main
 		Chainage_abstrait chainage = new Chainage_avant(base_regles, base_faits);
 		chainage.evaluer();
 		chainage.afficherEvolution();
-		System.out.println(chainage.getFaits().estAccepte());
+		//System.out.println(chainage.getFaits().estAccepte());
 	}
 }

@@ -42,8 +42,7 @@ public class Base_de_fait
 				String line = null;
 				while ((line = input.readLine()) != null)
 				{
-
-					for (Litteral litteral : Litteral.values())
+					for (Litteral litteral : Liste_litteral.values())
 					{
 						if (litteral.toString().equals(line.trim()))
 						{
@@ -62,10 +61,10 @@ public class Base_de_fait
 		}
 	}
 	
-	public boolean estAccepte()
+	/*public boolean estAccepte()
 	{
 		return this.faits.contains(Litteral.accepte);
-	}
+	}*/
 
 	@SuppressWarnings("unchecked")
 	@Override
