@@ -13,6 +13,7 @@ public class Liste_litteral
 	static void add(Litteral lit)
 	{
 		liste.add(lit);
+		Configuration.afficherTraceAjoutLitteral(lit);
 	}
 	
 	static boolean contains(Litteral lit)

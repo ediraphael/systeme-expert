@@ -82,6 +82,7 @@ public class Base_de_regle
 							}
 						}
 						this.regles.add(regle);
+						Configuration.afficherTraceAjoutRegle(regle);
 					}
 				}
 			} finally

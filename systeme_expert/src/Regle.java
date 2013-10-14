@@ -85,7 +85,7 @@ public class Regle
 		{
 			chaine+= lit + " ";
 		}
-		chaine+= "->";
+		chaine+= "-> ";
 		for (Litteral lit : conclusion)
 		{
 			chaine+= lit + " ";
