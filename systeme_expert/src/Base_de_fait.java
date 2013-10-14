@@ -41,7 +41,12 @@ public class Base_de_fait
 			{
 				String line = null;
 				while ((line = input.readLine()) != null)
-				{
+				{	
+					Litteral lit_conc = new Litteral(line);
+					if(!Liste_litteral.contains(lit_conc))
+					{
+						Liste_litteral.add(new Litteral(line.trim()));
+					}
 					for (Litteral litteral : Liste_litteral.values())
 					{
 						if (litteral.toString().equals(line.trim()))
