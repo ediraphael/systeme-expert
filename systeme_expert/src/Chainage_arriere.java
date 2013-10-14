@@ -6,50 +6,47 @@ public class Chainage_arriere extends Chainage_abstrait {
 	}
 
 	public void evaluer() {
-		for (Litteral litteral : Liste_litteral.values()) {
-			if (evaluerArriere(litteral)) {
-				this.getFaits().getFaits().add(litteral);
-			}
-		}
-
+		Litteral but = this.getFaits().faits.lastElement();
+		this.demo(but, this.getFaits());
 	}
 
-	public boolean evaluerArriere(Litteral b) {
+	public boolean demo(Litteral but, Base_de_fait BF) {
 		boolean dem = false;
 
-		// Premier cas evident
-		for (Litteral flitteral : this.getFaits().getFaits()) {
-			if (b.toString().equals(flitteral.toString()))
-				dem = true;
-		}
+		// 1er cas
+		if (this.getFaits().faits.contains(but))
+			dem = true;
 
-		// 2eme cas: rechercher si litteral deductible a partir de BR U BF
-		for (Regle regle : this.getRegles().getRegles()) {
-			for (Litteral r : regle.getConclusion()) {
-				if (r.toString().equals(b.toString())) {
-					while (dem == false) {
-						dem = Verif(regle.getCondition(), this.getFaits());
-					}
-				}
+		// 2eme cas
+		for (Regle regle : this.getRegles().regles) {
+			if (regle.getConclusion().contains(but)) {
+				dem = verif(regle.getCondition(), this.getFaits());
 			}
 		}
-
-		// 3eme cas: sinon voir si b est demandable
-
-		// A faire
+		
+		// 3eme cas
+		
+		if(dem)
+		{
+			this.getFaits().addFait(but);
+		}
 
 		return dem;
+
 	}
 
-	public boolean Verif(Vector<Litteral> condition, Base_de_fait BF) {
-		boolean ver = true;
-
-		for (Litteral b : BF.getFaits()) {
-			while (ver) {
-				ver = evaluerArriere(b);
+	public boolean verif(Vector<Litteral> but, Base_de_fait BF)
+	{
+		boolean ver=true;
+		
+		for(Litteral b : but)
+		{
+			if(ver==true)
+			{
+				ver=demo(b,BF);
 			}
 		}
+			
 		return ver;
 	}
-
 }
