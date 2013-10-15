@@ -40,7 +40,7 @@ public class Chainage_arriere extends Chainage_abstrait
 		if(!dem && this.getRegles().getDemandable().contains(but))
 		{
 			//On demande à l'utilisateur si il peut faire partie de la base de fait
-			
+			dem=Console.demanderBoolean("Question :\n "+but+" ?");
 		}
 
 		if (dem)
