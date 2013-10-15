@@ -64,6 +64,11 @@ public class Regle
 	{
 		return base_faits.containsAll(this.condition) && !this.estDeclenche;
 	}
+	
+	public boolean estConclusion(Litteral litteral)
+	{
+		return this.getConclusion().contains(litteral);
+	}
 
 	public Vector<Litteral> declencher(Vector<Litteral> base_faits)
 	{

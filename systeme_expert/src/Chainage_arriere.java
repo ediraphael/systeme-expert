@@ -37,7 +37,11 @@ public class Chainage_arriere extends Chainage_abstrait
 		}
 
 		// 3eme cas si b n'est pas une conclusion
-		
+		if(!dem && this.getRegles().getDemandable().contains(but))
+		{
+			//On demande à l'utilisateur si il peut faire partie de la base de fait
+			
+		}
 
 		if (dem)
 		{

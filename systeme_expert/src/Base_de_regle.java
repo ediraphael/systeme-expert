@@ -45,6 +45,33 @@ public class Base_de_regle
 		Configuration.afficherTraceComplementFin("Base_de_regle:addRegle");
 		return false;
 	}
+	
+	public boolean estConclusion(Litteral litteral)
+	{
+		boolean demandable = false;
+		for (Regle regle : this.regles)
+		{
+			demandable=regle.estConclusion(litteral);
+			if(demandable)
+			{
+				return demandable;
+			}
+		}
+		return demandable;
+	}
+	
+	public Vector<Litteral> getDemandable()
+	{
+		Vector<Litteral> liste_demandable= new Vector<Litteral>();
+		for (Litteral lit : Liste_litteral.values())
+		{
+			if(!estConclusion(lit))
+			{
+				liste_demandable.add(lit);
+			}
+		}
+		return liste_demandable;
+	}
 
 	public void loadFileBaseRegle()
 	{
