@@ -16,35 +16,39 @@ public class Chainage_arriere extends Chainage_abstrait
 
 	public boolean demo(Litteral but, Base_de_fait BF)
 	{
-		Configuration.afficherTraceComplementDebut("Chainage_arriere:demo");
+		Configuration.afficherTraceComplementDebut("Chainage_arriere:demo but:"+but);
 		boolean dem = false;
 
 		// 1er cas
 		if (this.getFaits().faits.contains(but))
 		{
+			Configuration.afficherTraceComplement("Présent dans la base de fait : " + but);
 			dem = true;
 		} else
 		{
 			// 2eme cas
 			for (Regle regle : this.getRegles().regles)
 			{
-				if (regle.getConclusion().contains(but))
+				if (regle.getConclusion().contains(but) && !dem)
 				{
-					Configuration.afficherTraceComplement("Vérification regle but("+but+"): "+regle);
+					Configuration.afficherTraceComplement("Vérification regle but(" + but + "): " + regle);
 					dem = verif(regle.getCondition(), this.getFaits());
 				}
 			}
 		}
 
 		// 3eme cas si b n'est pas une conclusion
-		if(!dem && this.getRegles().getDemandable().contains(but))
+		if (!dem && this.getRegles().getDemandable().contains(but))
 		{
-			//On demande à l'utilisateur si il peut faire partie de la base de fait
-			dem=Console.demanderBoolean("Question :\n "+but+" ?");
+			// On demande à l'utilisateur si il peut faire partie de la base de
+			// fait
+			Configuration.afficherTraceComplement("Demande utilisateur du but demandable : " + but);
+			dem = Console.demanderBoolean("Question :\n " + but + " ?");
 		}
 
 		if (dem)
 		{
+			Configuration.afficherTraceComplement("Ajout du but à la base de fait : " + but);
 			BF.addFait(but);
 		}
 		Configuration.afficherTraceComplementFin("Chainage_arriere:demo");
@@ -61,7 +65,7 @@ public class Chainage_arriere extends Chainage_abstrait
 			{
 				try
 				{
-					Configuration.afficherTraceComplement("Vérification  but : "+but);
+					Configuration.afficherTraceComplement("Vérification  but : " + but);
 					ver = demo(b, BF.clone());
 				} catch (CloneNotSupportedException e)
 				{
