@@ -14,7 +14,7 @@ public class Main
 		base_regles.loadFileBaseRegle();
 		base_faits.loadFileBaseFait();
 
-		Chainage_abstrait chainage = new Chainage_avant(base_regles, base_faits);
+		Chainage_abstrait chainage = new Chainage_arriere(base_regles, base_faits);
 		chainage.evaluer();
 		chainage.afficherEvolution();
 		// System.out.println(chainage.getFaits().estAccepte());
