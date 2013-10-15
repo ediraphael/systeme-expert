@@ -24,4 +24,9 @@ public class Litteral
 	{
 		return libelle;
 	}
+
+	public boolean isSameAs(Object anObject)
+	{
+		return libelle.equals(anObject);
+	}
 }

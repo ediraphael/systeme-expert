@@ -13,6 +13,7 @@ public class Main
 		Base_de_fait base_faits = new Base_de_fait();
 		base_regles.loadFileBaseRegle();
 		base_faits.loadFileBaseFait();
+		base_faits.addBut("accepte");
 
 		Chainage_abstrait chainage = new Chainage_arriere(base_regles, base_faits);
 		chainage.evaluer();

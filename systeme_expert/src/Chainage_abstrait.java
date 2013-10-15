@@ -18,22 +18,22 @@ public abstract class Chainage_abstrait
 		}
 	}
 	
-	public Base_de_regle getRegles()
+	public Base_de_regle getBaseRegles()
 	{
 		return base_regles;
 	}
 
-	public void setRegles(Base_de_regle regles)
+	public void setBaseRegles(Base_de_regle regles)
 	{
 		this.base_regles = regles;
 	}
 
-	public Base_de_fait getFaits()
+	public Base_de_fait getBaseFaits()
 	{
 		return base_faits;
 	}
 
-	public void setFaits(Base_de_fait faits)
+	public void setBaseFaits(Base_de_fait faits)
 	{
 		this.base_faits = faits;
 	}

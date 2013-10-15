@@ -15,13 +15,13 @@ public class Chainage_avant extends Chainage_abstrait
 		while (inf)
 		{
 			inf = false;
-			for (Regle regle : this.getRegles().getRegles())
+			for (Regle regle : this.getBaseRegles().getRegles())
 			{
-				dec = regle.estDeclenchable(this.getFaits().getFaits());
+				dec = regle.estDeclenchable(this.getBaseFaits().getFaits());
 				if (dec)
 				{
 					// nbinf++;
-					regle.declencher(this.getFaits());
+					regle.declencher(this.getBaseFaits());
 					inf = true;
 				}
 			}

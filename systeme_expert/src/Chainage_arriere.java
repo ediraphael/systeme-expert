@@ -9,9 +9,11 @@ public class Chainage_arriere extends Chainage_abstrait
 
 	public void evaluer()
 	{
-		Litteral but = Liste_litteral.values().lastElement();
-
-		System.out.println(this.demo(but, this.getFaits()));
+		Vector<Litteral> but = this.getBaseFaits().getButs();
+		for (Litteral litteral : but)
+		{
+			System.out.println(this.demo(litteral, this.getBaseFaits()));
+		}
 	}
 
 	public boolean demo(Litteral but, Base_de_fait BF)
@@ -20,25 +22,26 @@ public class Chainage_arriere extends Chainage_abstrait
 		boolean dem = false;
 
 		// 1er cas
-		if (this.getFaits().faits.contains(but))
+		if (this.getBaseFaits().faits.contains(but))
 		{
 			Configuration.afficherTraceComplement("Présent dans la base de fait : " + but);
 			dem = true;
 		} else
 		{
 			// 2eme cas
-			for (Regle regle : this.getRegles().regles)
+			Configuration.afficherTraceComplement("Parcours des regles avec but : " + but);
+			for (Regle regle : this.getBaseRegles().regles)
 			{
 				if (regle.getConclusion().contains(but) && !dem)
 				{
 					Configuration.afficherTraceComplement("Vérification regle but(" + but + "): " + regle);
-					dem = verif(regle.getCondition(), this.getFaits());
+					dem = verif(regle.getCondition(), this.getBaseFaits());
 				}
 			}
 		}
 
 		// 3eme cas si b n'est pas une conclusion
-		if (!dem && this.getRegles().getDemandable().contains(but))
+		if (!dem && this.getBaseRegles().getDemandable().contains(but))
 		{
 			// On demande à l'utilisateur si il peut faire partie de la base de
 			// fait
