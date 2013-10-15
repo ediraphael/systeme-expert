@@ -36,6 +36,10 @@ public class Chainage_arriere extends Chainage_abstrait
 				{
 					Configuration.afficherTraceComplement("Vérification regle but(" + but + "): " + regle);
 					dem = verif(regle.getCondition(), this.getBaseFaits());
+					if(dem)
+					{
+						regle.declencher(this.getBaseFaits());
+					}
 				}
 			}
 		}
