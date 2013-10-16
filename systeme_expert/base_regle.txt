@@ -5,4 +5,5 @@ poste_responsabilite : capacite_leadership
 langue_facile : neerlandais_parle
 bonne_adaptabilite ET capacite_leadership : accepte
 est_slave : langue_facile
+est_slave : langue_facile
 capacite_leadership ET est_slave : bonne_adaptabilite
