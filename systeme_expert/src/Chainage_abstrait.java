@@ -48,6 +48,11 @@ public abstract class Chainage_abstrait
 	{
 		this.base_buts = base_buts;
 	}
+	
+	public boolean butEstAtteint()
+	{
+		return this.getBase_faits().getElements().containsAll(this.getBase_buts().getElements());
+	}
 
 	public void afficherEvolution()
 	{

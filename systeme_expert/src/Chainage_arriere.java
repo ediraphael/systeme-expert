@@ -12,7 +12,7 @@ public class Chainage_arriere extends Chainage_abstrait
 		Vector<Litteral> but = this.getBase_buts().getButs();
 		for (Litteral litteral : but)
 		{
-			System.out.println(this.demo(litteral, this.getBase_faits()));
+			this.demo(litteral, this.getBase_faits());
 		}
 	}
 
@@ -53,22 +53,21 @@ public class Chainage_arriere extends Chainage_abstrait
 			dem = Console.demanderBoolean("Question :\n " + but + " ?");
 			if (dem)
 			{
-				this.getBase_faits().addFait(but);
+				this.getBase_faits().addElement(but);
 			}
 		}
 
-		if (dem)
+		/*if (dem)
 		{
-			Configuration.afficherTraceComplement("Ajout du but à la base de fait : " + but);
-			BF.addFait(but);
-		}
-		Configuration.afficherTraceComplementFin("Chainage_arriere:demo");
+			BF.addElement(but);
+		}*/
+		Configuration.afficherTraceComplementFin("Chainage_arriere:demo but:"+ but);
 		return dem;
 	}
 
 	public boolean verif(Vector<Litteral> but, Base_de_fait BF)
 	{
-		Configuration.afficherTraceComplementDebut("Chainage_arriere:verif");
+		Configuration.afficherTraceComplementDebut("Chainage_arriere:verif but:"+but);
 		boolean ver = true;
 		for (Litteral b : but)
 		{
@@ -84,7 +83,7 @@ public class Chainage_arriere extends Chainage_abstrait
 				}
 			}
 		}
-		Configuration.afficherTraceComplementFin("Chainage_arriere:verif");
+		Configuration.afficherTraceComplementFin("Chainage_arriere:verif but:"+but);
 		return ver;
 	}
 }

@@ -12,8 +12,13 @@ public class Base_de_fait extends Base_abstrait
 		super();
 		for (Litteral fait : faits)
 		{
-			this.addFait(fait);
+			this.elements.add(fait);
 		}
+	}
+
+	public String getTypeBase()
+	{
+		return "Base de faits";
 	}
 
 	public Vector<Litteral> getFaits()
@@ -21,7 +26,7 @@ public class Base_de_fait extends Base_abstrait
 		Vector<Litteral> retour = new Vector<Litteral>();
 		for (Object object : this.getElements())
 		{
-			retour.add((Litteral)object);
+			retour.add((Litteral) object);
 		}
 		return retour;
 	}
@@ -36,18 +41,13 @@ public class Base_de_fait extends Base_abstrait
 		this.setElements(vec);
 	}
 
-	public Litteral addFait(Litteral litteral)
-	{
-		return (Litteral)this.addElement(litteral);
-	}
-
 	public Vector<Litteral> addAllFait(Vector<Litteral> litteraux)
 	{
 		Vector<Litteral> retour = new Vector<Litteral>();
 		Litteral ob;
 		for (Litteral litteral : litteraux)
 		{
-			ob = this.addFait(litteral);
+			ob = (Litteral)this.addElement(litteral);
 			if (ob != null)
 			{
 				retour.add(ob);

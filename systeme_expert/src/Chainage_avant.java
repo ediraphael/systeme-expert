@@ -12,7 +12,7 @@ public class Chainage_avant extends Chainage_abstrait
 		boolean dec = false;
 		// int nbinf = 0;
 
-		while (inf)
+		while (inf && !this.getBase_faits().getFaits().containsAll(this.getBase_buts().getElements()))
 		{
 			inf = false;
 			for (Regle regle : this.getBase_regles().getRegles())

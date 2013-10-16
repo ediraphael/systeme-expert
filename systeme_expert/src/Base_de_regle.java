@@ -15,8 +15,13 @@ public class Base_de_regle extends Base_abstrait
 		super();
 		for (Regle regle : regles)
 		{
-			this.addRegle(regle);
+			this.elements.add(regle);
 		}
+	}
+
+	public String getTypeBase()
+	{
+		return "Base de regles";
 	}
 
 	public Vector<Regle> getRegles()
@@ -39,11 +44,6 @@ public class Base_de_regle extends Base_abstrait
 		this.setElements(vec);
 	}
 
-	public Regle addRegle(Regle regle)
-	{
-		return (Regle) this.addElement(regle);
-	}
-
 	public Vector<Regle> addAllRegle(Vector<Regle> regles)
 	{
 		Configuration.afficherTraceComplementDebut("Base_de_regle:addAllRegle");
@@ -51,7 +51,7 @@ public class Base_de_regle extends Base_abstrait
 		Regle reg;
 		for (Regle regle : regles)
 		{
-			reg = this.addRegle(regle);
+			reg = (Regle)this.addElement(regle);
 			if (reg != null)
 			{
 				retour.add(reg);
@@ -138,7 +138,7 @@ public class Base_de_regle extends Base_abstrait
 								}
 							}
 						}
-						this.addRegle(regle);
+						this.addElement(regle);
 					}
 				}
 			} finally

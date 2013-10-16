@@ -12,8 +12,13 @@ public class Base_de_but extends Base_abstrait
 		super();
 		for (Litteral but : buts)
 		{
-			this.addBut(but);
+			this.elements.add(but);
 		}
+	}
+	
+	public String getTypeBase()
+	{
+		return "Base de buts";
 	}
 
 	public Vector<Litteral> getButs()
@@ -36,28 +41,23 @@ public class Base_de_but extends Base_abstrait
 		this.setElements(vec);
 	}
 
-	public Litteral addBut(Litteral litteral)
-	{
-		return (Litteral) this.addElement(litteral);
-	}
-
 	public Litteral addBut(String but)
 	{
-		Configuration.afficherTraceComplementDebut("Base_de_fait:addBut(String) : " + but);
+		Configuration.afficherTraceComplementDebut("Base_de_but:addBut(String) : " + but);
 		for (Litteral litteral : Liste_litteral.values())
 		{
 			if (litteral.isSameAs(but))
 			{
-				if (this.addBut(litteral) != null)
+				if (this.addElement(litteral) != null)
 				{
-					Configuration.afficherTraceComplementFin("Base_de_fait:addBut(String) : " + but);
+					Configuration.afficherTraceComplementFin("Base_de_but:addBut(String) : " + but);
 					return litteral;
 				}
-				Configuration.afficherTraceComplementFin("Base_de_fait:addBut(String) : " + but);
+				Configuration.afficherTraceComplementFin("Base_de_but:addBut(String) : " + but);
 				return null;
 			}
 		}
-		Configuration.afficherTraceComplementFin("Base_de_fait:addBut(String) : " + but);
+		Configuration.afficherTraceComplementFin("Base_de_but:addBut(String) : " + but);
 		return null;
 	}
 

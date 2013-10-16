@@ -14,7 +14,7 @@ public class Liste_litteral
 	{
 		Configuration.afficherTraceComplementDebut("Liste_litteral:addLitteral");
 		liste_litteral.add(lit);
-		Configuration.afficherTraceAjoutLitteral(lit);
+		Configuration.afficherTraceAjout(lit,liste_litteral.lastElement());
 		Configuration.afficherTraceComplementFin("Liste_litteral:addLitteral");
 	}
 	

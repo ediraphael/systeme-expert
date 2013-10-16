@@ -17,30 +17,40 @@ public abstract class Base_abstrait
 		this.elements = elements;
 	}
 
-	protected Vector<Object> getElements()
+	public Vector<Object> getElements()
 	{
 		return elements;
 	}
+	
+	public abstract String getTypeBase();
 
-	protected void setElements(Vector<Object> elements)
+	public void setElements(Vector<Object> elements)
 	{
 		this.elements = elements;
 	}
 
-	protected Object addElement(Object litteral)
+	protected Object addElement(Object element)
 	{
-		if (!elements.contains(litteral))
+		Configuration.afficherTraceComplementDebut(this.getTypeBase()+":addElement(" + element + ")");
+		if (!elements.contains(element))
 		{
-			if (elements.add(litteral))
+			if (elements.add(element))
 			{
-				return litteral;
+				Configuration.afficherTraceAjout(element,this);
+				Configuration.afficherTraceComplementFin(this.getTypeBase()+":addElement(" + element + ") retour:" + element);
+				return element;
 			}
+		}else
+		{
+			Configuration.afficherTraceAjoutErreurDejaPresent(element,this);
 		}
+		Configuration.afficherTraceComplementFin(this.getTypeBase()+":addElement(" + element + ") retour:null");
 		return null;
 	}
 
 	protected Vector<Object> addAllElement(Vector<Object> object)
 	{
+		Configuration.afficherTraceComplementDebut(this.getTypeBase()+":addAllElement(" + object + ")");
 		Vector<Object> retour = new Vector<Object>();
 		Object ob;
 		for (Object litteral : object)
@@ -51,11 +61,13 @@ public abstract class Base_abstrait
 				retour.add(ob);
 			}
 		}
+		Configuration.afficherTraceComplementFin(this.getTypeBase()+":addAllElement(" + object + ") retour:"+retour);
 		return retour;
 	}
 
 	protected void loadFile(String fichier)
 	{
+		Configuration.afficherTraceComplementDebut(this.getTypeBase()+":loadFile(" + fichier + ")");
 		try
 		{
 			BufferedReader input = new BufferedReader(new FileReader(fichier));
@@ -83,7 +95,8 @@ public abstract class Base_abstrait
 			}
 		} catch (IOException ex)
 		{
-			ex.printStackTrace();
+			Configuration.afficherTraceComplement("Erreur : " + ex.getMessage());
 		}
+		Configuration.afficherTraceComplementFin(this.getTypeBase()+":loadFile(" + fichier + ")");
 	}
 }
