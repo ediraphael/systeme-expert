@@ -3,69 +3,84 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.Vector;
 
-public class Base_de_regle
+public class Base_de_regle extends Base_abstrait
 {
-	Vector<Regle> regles;
-
 	public Base_de_regle()
 	{
-		this.regles = new Vector<Regle>();
+		super();
 	}
 
 	public Base_de_regle(Vector<Regle> regles)
 	{
-		this.regles = regles;
+		super();
+		for (Regle regle : regles)
+		{
+			this.addRegle(regle);
+		}
 	}
 
 	public Vector<Regle> getRegles()
 	{
-		return regles;
+		Vector<Regle> retour = new Vector<Regle>();
+		for (Object object : this.getElements())
+		{
+			retour.add((Regle) object);
+		}
+		return retour;
 	}
 
 	public void setRegles(Vector<Regle> regles)
 	{
-		this.regles = regles;
+		Vector<Object> vec = new Vector<Object>();
+		for (Object object : regles)
+		{
+			vec.add(object);
+		}
+		this.setElements(vec);
 	}
 
-	public boolean addRegle(Regle regle)
+	public Regle addRegle(Regle regle)
 	{
-		Configuration.afficherTraceComplementDebut("Base_de_regle:addRegle");
-		if (!this.regles.contains(regle))
-		{
-			if (this.regles.add(regle))
-			{
-				Configuration.afficherTraceAjoutRegle(regle);
-				Configuration.afficherTraceComplementFin("addRegle");
-				return true;
-			}
-		} else
-		{
-			Configuration.afficherTraceErreurDejaPresentAjoutRegle(regle);
-		}
-		Configuration.afficherTraceComplementFin("Base_de_regle:addRegle");
-		return false;
+		return (Regle) this.addElement(regle);
 	}
-	
+
+	public Vector<Regle> addAllRegle(Vector<Regle> regles)
+	{
+		Configuration.afficherTraceComplementDebut("Base_de_regle:addAllRegle");
+		Vector<Regle> retour = new Vector<Regle>();
+		Regle reg;
+		for (Regle regle : regles)
+		{
+			reg = this.addRegle(regle);
+			if (reg != null)
+			{
+				retour.add(reg);
+			}
+		}
+		Configuration.afficherTraceComplementFin("Base_de_regle:addAllRegle");
+		return retour;
+	}
+
 	public boolean estConclusion(Litteral litteral)
 	{
 		boolean demandable = false;
-		for (Regle regle : this.regles)
+		for (Regle regle : this.getRegles())
 		{
-			demandable=regle.estConclusion(litteral);
-			if(demandable)
+			demandable = regle.estConclusion(litteral);
+			if (demandable)
 			{
 				return demandable;
 			}
 		}
 		return demandable;
 	}
-	
+
 	public Vector<Litteral> getDemandable()
 	{
-		Vector<Litteral> liste_demandable= new Vector<Litteral>();
+		Vector<Litteral> liste_demandable = new Vector<Litteral>();
 		for (Litteral lit : Liste_litteral.values())
 		{
-			if(!estConclusion(lit))
+			if (!estConclusion(lit))
 			{
 				liste_demandable.add(lit);
 			}
@@ -73,12 +88,12 @@ public class Base_de_regle
 		return liste_demandable;
 	}
 
-	public void loadFileBaseRegle()
+	public void loadFile(String fichier)
 	{
 		Configuration.afficherTraceComplementDebut("Base_de_regle:loadFileBaseRegle");
 		try
 		{
-			BufferedReader input = new BufferedReader(new FileReader("base_regle.txt"));
+			BufferedReader input = new BufferedReader(new FileReader(fichier));
 			try
 			{
 				String line = null;

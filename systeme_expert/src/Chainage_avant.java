@@ -1,8 +1,8 @@
 public class Chainage_avant extends Chainage_abstrait
 {
-	public Chainage_avant(Base_de_regle regles, Base_de_fait faits)
+	public Chainage_avant(Base_de_regle regles, Base_de_fait faits, Base_de_but buts)
 	{
-		super(regles, faits);
+		super(regles, faits, buts);
 	}
 
 	public void evaluer()
@@ -15,13 +15,13 @@ public class Chainage_avant extends Chainage_abstrait
 		while (inf)
 		{
 			inf = false;
-			for (Regle regle : this.getBaseRegles().getRegles())
+			for (Regle regle : this.getBase_regles().getRegles())
 			{
-				dec = regle.estDeclenchable(this.getBaseFaits().getFaits());
+				dec = regle.estDeclenchable(this.getBase_faits().getFaits());
 				if (dec)
 				{
 					// nbinf++;
-					regle.declencher(this.getBaseFaits());
+					regle.declencher(this.getBase_faits());
 					inf = true;
 				}
 			}
