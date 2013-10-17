@@ -29,6 +29,7 @@ public class Chainage extends JPanel implements ActionListener
 			System.out.println("chainage");
 			Affichage.reset();
 			SystemeExpert.loadFichier();
+			SystemeExpert.base_faits.loadFile("base_fait.txt");
 			if (avar.estAvant())
 			{
 				SystemeExpert.setChainage(new Chainage_avant(SystemeExpert.getBase_regles(), SystemeExpert.getBase_faits(), SystemeExpert.getBase_buts()));

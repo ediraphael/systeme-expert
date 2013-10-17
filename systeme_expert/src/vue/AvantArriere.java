@@ -70,12 +70,9 @@ public class AvantArriere extends JPanel implements ActionListener
 		if (e.getSource() == avant)
 		{
 			System.out.println("avant");
-			SystemeExpert.setChainage(new Chainage_avant(SystemeExpert.getBase_regles(), SystemeExpert.getBase_faits(), SystemeExpert.getBase_buts()));
-
 		} else if (e.getSource() == arriere)
 		{
 			System.out.println("arriere");
-			SystemeExpert.setChainage(new Chainage_arriere(SystemeExpert.getBase_regles(), SystemeExpert.getBase_faits(), SystemeExpert.getBase_buts()));
 		}
 	}
 }

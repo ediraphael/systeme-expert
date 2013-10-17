@@ -27,6 +27,7 @@ class AfficheTrace extends JPanel
 
 	public void reset()
 	{
+		System.out.println("reset de l'affichage");
 		grandeZone.setText("");
 	}
 }

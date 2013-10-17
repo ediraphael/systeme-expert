@@ -75,9 +75,6 @@ public class SystemeExpert
 		Configuration.AFFICHER_TRACE_REGLE_AUTRE = false;
 		Configuration.AFFICHER_TRACE_BUT = false;
 		Configuration.AFFICHER_TRACE_COMPLEMENT = true;
-		base_regles.loadFile("base_regle.txt");
-		base_faits.loadFile("base_fait.txt");
-		base_buts.loadFile("base_but.txt");
 		// Main modele
 
 		// Main vue
