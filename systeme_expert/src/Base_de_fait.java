@@ -7,10 +7,10 @@ public class Base_de_fait extends Base_abstrait
 		super();
 	}
 
-	public Base_de_fait(Vector<Litteral> faits)
+	public Base_de_fait(Vector<Element_base> faits)
 	{
 		super();
-		for (Litteral fait : faits)
+		for (Element_base fait : faits)
 		{
 			this.elements.add(fait);
 		}
@@ -21,17 +21,17 @@ public class Base_de_fait extends Base_abstrait
 		return "Base de faits";
 	}
 
-	public Vector<Litteral> getFaits()
+	public Vector<Element_base> getFaits()
 	{
-		Vector<Litteral> retour = new Vector<Litteral>();
+		Vector<Element_base> retour = new Vector<Element_base>();
 		for (Object object : this.getElements())
 		{
-			retour.add((Litteral) object);
+			retour.add((Element_base) object);
 		}
 		return retour;
 	}
 
-	public void setFaits(Vector<Litteral> faits)
+	public void setFaits(Vector<Element_base> faits)
 	{
 		Vector<Object> vec = new Vector<Object>();
 		for (Object object : faits)
@@ -41,13 +41,13 @@ public class Base_de_fait extends Base_abstrait
 		this.setElements(vec);
 	}
 
-	public Vector<Litteral> addAllFait(Vector<Litteral> litteraux)
+	public Vector<Element_base> addAllFait(Vector<Element_base> litteraux)
 	{
-		Vector<Litteral> retour = new Vector<Litteral>();
-		Litteral ob;
-		for (Litteral litteral : litteraux)
+		Vector<Element_base> retour = new Vector<Element_base>();
+		Element_base ob;
+		for (Element_base litteral : litteraux)
 		{
-			ob = (Litteral)this.addElement(litteral);
+			ob = (Element_base)this.addElement(litteral);
 			if (ob != null)
 			{
 				retour.add(ob);
@@ -60,6 +60,6 @@ public class Base_de_fait extends Base_abstrait
 	@Override
 	protected Base_de_fait clone() throws CloneNotSupportedException
 	{
-		return new Base_de_fait((Vector<Litteral>) this.getFaits().clone());
+		return new Base_de_fait((Vector<Element_base>) this.getFaits().clone());
 	}
 }

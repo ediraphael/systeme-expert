@@ -51,7 +51,7 @@ public class Base_de_regle extends Base_abstrait
 		Regle reg;
 		for (Regle regle : regles)
 		{
-			reg = (Regle)this.addElement(regle);
+			reg = (Regle) this.addElement(regle);
 			if (reg != null)
 			{
 				retour.add(reg);
@@ -61,12 +61,12 @@ public class Base_de_regle extends Base_abstrait
 		return retour;
 	}
 
-	public boolean estConclusion(Litteral litteral)
+	public boolean estConclusion(Element_base element)
 	{
 		boolean demandable = false;
 		for (Regle regle : this.getRegles())
 		{
-			demandable = regle.estConclusion(litteral);
+			demandable = regle.estConclusion(element);
 			if (demandable)
 			{
 				return demandable;
@@ -75,14 +75,15 @@ public class Base_de_regle extends Base_abstrait
 		return demandable;
 	}
 
-	public Vector<Litteral> getDemandable()
+	public Vector<Element_base> getDemandable()
 	{
-		Vector<Litteral> liste_demandable = new Vector<Litteral>();
+		Vector<Element_base> liste_demandable = new Vector<Element_base>();
 		for (Litteral lit : Liste_litteral.values())
 		{
-			if (!estConclusion(lit))
+			Element_base element = new Element_base(lit);
+			if (!estConclusion(element))
 			{
-				liste_demandable.add(lit);
+				liste_demandable.add(element);
 			}
 		}
 		return liste_demandable;
@@ -108,8 +109,15 @@ public class Base_de_regle extends Base_abstrait
 						Regle regle = new Regle();
 						condition = composition[0].split(" ET ");
 						conclusion = composition[1].split(" ET ");
+						boolean estNonElement = false;
 						for (String cond : condition)
 						{
+							estNonElement = false;
+							if (cond.startsWith("!"))
+							{
+								estNonElement = true;
+								cond=cond.substring(1);
+							}
 							Litteral lit_cond = new Litteral(cond);
 							if (!Liste_litteral.contains(lit_cond))
 							{
@@ -119,12 +127,18 @@ public class Base_de_regle extends Base_abstrait
 							{
 								if (litteral.toString().equals(cond.trim()))
 								{
-									regle.addCondition(litteral);
+									regle.addCondition(new Element_base(litteral,estNonElement));
 								}
 							}
 						}
 						for (String conc : conclusion)
 						{
+							estNonElement = false;
+							if (conc.startsWith("!"))
+							{
+								estNonElement = true;
+								conc=conc.substring(1);
+							}
 							Litteral lit_conc = new Litteral(conc);
 							if (!Liste_litteral.contains(lit_conc))
 							{
@@ -134,7 +148,7 @@ public class Base_de_regle extends Base_abstrait
 							{
 								if (litteral.toString().equals(conc.trim()))
 								{
-									regle.addConclusion(litteral);
+									regle.addConclusion(new Element_base(litteral, estNonElement));
 								}
 							}
 						}

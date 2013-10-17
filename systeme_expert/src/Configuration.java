@@ -196,6 +196,14 @@ public class Configuration
 			System.out.println("Erreur de déclenchement, règle déjà déclenché : " + object);
 		}
 	}
+	
+	public static void afficherTraceErreurIncoherenceDeclenchementRegle(Object object)
+	{
+		if (Configuration.AFFICHER_TRACE && AFFICHER_TRACE_REGLE && Configuration.AFFICHER_TRACE_REGLE_DECLENCHEMENT)
+		{
+			System.out.println("Erreur de déclenchement, incohérence entre la base de fait et la conclusion : " + object);
+		}
+	}
 
 	public static void afficherTraceNoteDeclenchementInutileDeclenchementRegle(Object object)
 	{

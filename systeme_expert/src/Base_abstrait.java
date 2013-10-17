@@ -21,7 +21,7 @@ public abstract class Base_abstrait
 	{
 		return elements;
 	}
-	
+
 	public abstract String getTypeBase();
 
 	public void setElements(Vector<Object> elements)
@@ -31,26 +31,26 @@ public abstract class Base_abstrait
 
 	protected Object addElement(Object element)
 	{
-		Configuration.afficherTraceComplementDebut(this.getTypeBase()+":addElement(" + element + ")");
+		Configuration.afficherTraceComplementDebut(this.getTypeBase() + ":addElement(" + element + ")");
 		if (!elements.contains(element))
 		{
 			if (elements.add(element))
 			{
-				Configuration.afficherTraceAjout(element,this);
-				Configuration.afficherTraceComplementFin(this.getTypeBase()+":addElement(" + element + ") retour:" + element);
+				Configuration.afficherTraceAjout(element, this);
+				Configuration.afficherTraceComplementFin(this.getTypeBase() + ":addElement(" + element + ") retour:" + element);
 				return element;
 			}
-		}else
+		} else
 		{
-			Configuration.afficherTraceAjoutErreurDejaPresent(element,this);
+			Configuration.afficherTraceAjoutErreurDejaPresent(element, this);
 		}
-		Configuration.afficherTraceComplementFin(this.getTypeBase()+":addElement(" + element + ") retour:null");
+		Configuration.afficherTraceComplementFin(this.getTypeBase() + ":addElement(" + element + ") retour:null");
 		return null;
 	}
 
 	protected Vector<Object> addAllElement(Vector<Object> object)
 	{
-		Configuration.afficherTraceComplementDebut(this.getTypeBase()+":addAllElement(" + object + ")");
+		Configuration.afficherTraceComplementDebut(this.getTypeBase() + ":addAllElement(" + object + ")");
 		Vector<Object> retour = new Vector<Object>();
 		Object ob;
 		for (Object litteral : object)
@@ -61,13 +61,13 @@ public abstract class Base_abstrait
 				retour.add(ob);
 			}
 		}
-		Configuration.afficherTraceComplementFin(this.getTypeBase()+":addAllElement(" + object + ") retour:"+retour);
+		Configuration.afficherTraceComplementFin(this.getTypeBase() + ":addAllElement(" + object + ") retour:" + retour);
 		return retour;
 	}
 
 	protected void loadFile(String fichier)
 	{
-		Configuration.afficherTraceComplementDebut(this.getTypeBase()+":loadFile(" + fichier + ")");
+		Configuration.afficherTraceComplementDebut(this.getTypeBase() + ":loadFile(" + fichier + ")");
 		try
 		{
 			BufferedReader input = new BufferedReader(new FileReader(fichier));
@@ -76,6 +76,12 @@ public abstract class Base_abstrait
 				String line = null;
 				while ((line = input.readLine()) != null)
 				{
+					boolean estNonElement = false;
+					if (line.startsWith("!"))
+					{
+						estNonElement = true;
+						line = line.substring(1);
+					}
 					Litteral lit_conc = new Litteral(line);
 					if (!Liste_litteral.contains(lit_conc))
 					{
@@ -85,7 +91,7 @@ public abstract class Base_abstrait
 					{
 						if (litteral.toString().equals(line.trim()))
 						{
-							this.addElement(litteral);
+							this.addElement(new Element_base(litteral, estNonElement));
 						}
 					}
 				}
@@ -97,6 +103,6 @@ public abstract class Base_abstrait
 		{
 			Configuration.afficherTraceComplement("Erreur : " + ex.getMessage());
 		}
-		Configuration.afficherTraceComplementFin(this.getTypeBase()+":loadFile(" + fichier + ")");
+		Configuration.afficherTraceComplementFin(this.getTypeBase() + ":loadFile(" + fichier + ")");
 	}
 }

@@ -29,4 +29,17 @@ public class Litteral
 	{
 		return libelle.equals(anObject);
 	}
+	
+	@Override
+	public boolean equals(Object obj)
+	{
+		if (!(obj instanceof Litteral))
+		{
+			return false;
+		} else if (!((Litteral) obj).getLibelle().equals(this.getLibelle()))
+		{
+			return false;
+		}
+		return true;
+	}
 }

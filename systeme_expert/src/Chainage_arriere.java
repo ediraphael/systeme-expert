@@ -9,14 +9,14 @@ public class Chainage_arriere extends Chainage_abstrait
 
 	public void evaluer()
 	{
-		Vector<Litteral> but = this.getBase_buts().getButs();
-		for (Litteral litteral : but)
+		Vector<Element_base> but = this.getBase_buts().getButs();
+		for (Element_base element : but)
 		{
-			this.demo(litteral, this.getBase_faits());
+			this.demo(element, this.getBase_faits());
 		}
 	}
 
-	public boolean demo(Litteral but, Base_de_fait BF)
+	public boolean demo(Element_base but, Base_de_fait BF)
 	{
 		Configuration.afficherTraceComplementDebut("Chainage_arriere:demo but:" + but);
 		boolean dem = false;
@@ -32,7 +32,7 @@ public class Chainage_arriere extends Chainage_abstrait
 			Configuration.afficherTraceComplement("Parcours des regles avec but : " + but);
 			for (Regle regle : this.getBase_regles().getRegles())
 			{
-				if (regle.getConclusion().contains(but) && !dem)
+				if (regle.getConclusion().contains(but) && !regle.estEnIncoherence(this.getBase_faits().getFaits()) && !dem)
 				{
 					Configuration.afficherTraceComplement("Vérification regle but(" + but + "): " + regle);
 					dem = verif(regle.getCondition(), this.getBase_faits());
@@ -47,6 +47,8 @@ public class Chainage_arriere extends Chainage_abstrait
 		// 3eme cas si b n'est pas une conclusion
 		if (!dem && this.getBase_regles().getDemandable().contains(but))
 		{
+			System.out.println(this.getBase_faits().getFaits());
+			System.out.println(but);
 			// On demande à l'utilisateur si il peut faire partie de la base de
 			// fait
 			Configuration.afficherTraceComplement("Demande utilisateur du but demandable : " + but);
@@ -65,11 +67,11 @@ public class Chainage_arriere extends Chainage_abstrait
 		return dem;
 	}
 
-	public boolean verif(Vector<Litteral> but, Base_de_fait BF)
+	public boolean verif(Vector<Element_base> but, Base_de_fait BF)
 	{
 		Configuration.afficherTraceComplementDebut("Chainage_arriere:verif but:"+but);
 		boolean ver = true;
-		for (Litteral b : but)
+		for (Element_base b : but)
 		{
 			if (ver == true)
 			{

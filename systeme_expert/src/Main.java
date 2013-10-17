@@ -5,7 +5,7 @@ public class Main
 	{
 		Configuration.AFFICHER_TRACE = true;
 		Configuration.AFFICHER_TRACE_LITTERAL = false;
-		Configuration.AFFICHER_TRACE_FAIT = true;
+		Configuration.AFFICHER_TRACE_FAIT = false;
 		Configuration.AFFICHER_TRACE_REGLE = true;
 		Configuration.AFFICHER_TRACE_REGLE_DECLENCHEMENT = true;
 		Configuration.AFFICHER_TRACE_REGLE_AUTRE = false;

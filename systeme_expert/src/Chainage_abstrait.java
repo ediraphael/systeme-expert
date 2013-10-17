@@ -57,13 +57,13 @@ public abstract class Chainage_abstrait
 	public void afficherEvolution()
 	{
 		System.out.println("Base de fait initial :");
-		for (Litteral faits : this.base_faits_initial.getFaits())
+		for (Element_base faits : this.base_faits_initial.getFaits())
 		{
 			System.out.println(faits);
 		}
 		System.out.println();
 		System.out.println("Base de fait calculée:");
-		for (Litteral faits : this.base_faits.getFaits())
+		for (Element_base faits : this.base_faits.getFaits())
 		{
 			System.out.println(faits);
 		}
