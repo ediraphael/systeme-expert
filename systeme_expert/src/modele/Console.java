@@ -3,9 +3,9 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class Console
+public class Console extends Interface_utilisateur
 {
-	static public String lireClavier(String message)
+	public String lireClavier_interface(String message) 
 	{
 		String resultat = "";
 		Affichage.afficher(message);
@@ -16,15 +16,14 @@ public class Console
 		} catch (IOException e)
 		{
 			Affichage.afficher("Erreur : " + e.getMessage());
-			// e.printStackTrace();
 		}
 		return resultat;
 	}
 	
-	static public boolean demanderBoolean(String message)
+	public boolean demanderBoolean_interface(String message)
 	{
 		message+="(yes/no)";
-		String resultat= lireClavier(message);
+		String resultat= lireClavier_interface(message);
 		if(resultat.equals("yes"))
 		{
 			return true;

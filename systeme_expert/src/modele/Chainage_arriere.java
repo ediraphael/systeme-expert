@@ -54,7 +54,7 @@ public class Chainage_arriere extends Chainage_abstrait
 			// On demande à l'utilisateur si il peut faire partie de la base de
 			// fait
 			Configuration.afficherTraceComplement("Demande utilisateur du but demandable : " + but);
-			dem = Console.demanderBoolean("Question :\n " + but + " ?");
+			dem = Interface_utilisateur.demanderBoolean("Question :\n " + but + " ?");
 			if (dem)
 			{
 				this.getBase_faits().addElement(but);

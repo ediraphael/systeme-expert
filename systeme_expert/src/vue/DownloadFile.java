@@ -9,7 +9,7 @@ import java.awt.event.*;
 public class DownloadFile extends JPanel implements ActionListener
 {
 	public JButton param = new JButton("parcourir");
-	private JTextField path = new JTextField(30);
+	private JTextField path = new JTextField(150);
 
 	public DownloadFile(String name)
 	{
@@ -19,6 +19,22 @@ public class DownloadFile extends JPanel implements ActionListener
 		add(path, BorderLayout.CENTER);
 		add(param, BorderLayout.EAST);
 		param.addActionListener(this);
+	}
+	
+	public DownloadFile(String name,String path)
+	{
+		JLabel label = new JLabel(name);
+		setLayout(new BorderLayout(10, 10));
+		add(label, BorderLayout.NORTH);
+		add(this.path, BorderLayout.CENTER);
+		add(this.param, BorderLayout.EAST);
+		this.param.addActionListener(this);
+		this.path.setText(path);
+	}
+	
+	public String getPathText()
+	{
+		return this.path.getText();
 	}
 
 	public void actionPerformed(ActionEvent e)

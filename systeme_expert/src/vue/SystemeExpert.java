@@ -11,7 +11,15 @@ public class SystemeExpert
 	public static Base_de_regle base_regles = new Base_de_regle();
 	public static Base_de_fait base_faits = new Base_de_fait();
 	public static Base_de_but base_buts = new Base_de_but();
-	public static Chainage_abstrait chainage = new Chainage_avant(base_regles, base_faits, base_buts);
+	public static String chemin_fait = "base_fait.txt";
+	public static String chemin_but = "base_but.txt";
+	public static String chemin_regle = "base_regle.txt";
+	public static Chainage_abstrait chainage;
+	
+	
+	public static DownloadFile dfbr = new DownloadFile("Votre Base de Régle:",chemin_regle);
+	public static DownloadFile dfbf = new DownloadFile("Votre Base de Fait:",chemin_fait);
+	public static DownloadFile dfb = new DownloadFile("Votre But:",chemin_but);
 
 	public static Base_de_regle getBase_regles()
 	{
@@ -52,17 +60,15 @@ public class SystemeExpert
 	{
 		SystemeExpert.chainage = chainage;
 	}
-	
-	
-	
+
 	public static void loadFichier()
 	{
 		base_regles = new Base_de_regle();
 		base_faits = new Base_de_fait();
 		base_buts = new Base_de_but();
-		base_regles.loadFile("base_regle.txt");
-		base_faits.loadFile("base_fait.txt");
-		base_buts.loadFile("base_but.txt");
+		base_regles.loadFile(dfbr.getPathText());
+		base_faits.loadFile(dfbf.getPathText());
+		base_buts.loadFile(dfb.getPathText());
 	}
 
 	public static void main(String[] arg) throws IOException
@@ -74,21 +80,19 @@ public class SystemeExpert
 		Configuration.AFFICHER_TRACE_REGLE_DECLENCHEMENT = true;
 		Configuration.AFFICHER_TRACE_REGLE_AUTRE = false;
 		Configuration.AFFICHER_TRACE_BUT = false;
-		Configuration.AFFICHER_TRACE_COMPLEMENT = true;
+		Configuration.AFFICHER_TRACE_COMPLEMENT = false;
 		// Main modele
 
 		// Main vue
 		JFrame cadre = new javax.swing.JFrame("Systeme-expert : Motor Zero");
 
-		DownloadFile dfbr = new DownloadFile("Votre Base de Régle:");
-		DownloadFile dfbf = new DownloadFile("Votre Base de Fait:");
-		DownloadFile dfb = new DownloadFile("Votre But:");
 		AvantArriere av = new AvantArriere();
 		ChoixTrace ct = new ChoixTrace();
 		Chainage ch = new Chainage(av);
 		AfficheTrace at = new AfficheTrace();
 
 		Affichage.setECRAN(new Ecran_fenetre(at));
+		Interface_utilisateur.setINTERFACE(new Interface_fenetre(new Dialogue()));
 
 		JPanel panneauDF = new JPanel();
 		panneauDF.setLayout(new BorderLayout());
