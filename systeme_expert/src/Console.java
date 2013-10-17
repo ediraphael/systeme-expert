@@ -7,14 +7,14 @@ public class Console
 	static public String lireClavier(String message)
 	{
 		String resultat = "";
-		System.out.println(message);
+		Affichage.afficher(message);
 		BufferedReader lecteur = new BufferedReader(new InputStreamReader(System.in));
 		try
 		{
 			resultat = lecteur.readLine();
 		} catch (IOException e)
 		{
-			System.out.println("Erreur : " + e.getMessage());
+			Affichage.afficher("Erreur : " + e.getMessage());
 			// e.printStackTrace();
 		}
 		return resultat;

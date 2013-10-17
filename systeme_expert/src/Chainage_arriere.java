@@ -47,8 +47,6 @@ public class Chainage_arriere extends Chainage_abstrait
 		// 3eme cas si b n'est pas une conclusion
 		if (!dem && this.getBase_regles().getDemandable().contains(but))
 		{
-			System.out.println(this.getBase_faits().getFaits());
-			System.out.println(but);
 			// On demande à l'utilisateur si il peut faire partie de la base de
 			// fait
 			Configuration.afficherTraceComplement("Demande utilisateur du but demandable : " + but);

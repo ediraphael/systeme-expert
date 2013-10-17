@@ -12,6 +12,7 @@ public class Main
 		Configuration.AFFICHER_TRACE_BUT = false;
 		Configuration.AFFICHER_TRACE_COMPLEMENT = false;
 
+		//Affichage.setECRAN(new Ecran_bis());
 		Base_de_regle base_regles = new Base_de_regle();
 		Base_de_fait base_faits = new Base_de_fait();
 		Base_de_but base_buts = new Base_de_but();

@@ -13,7 +13,7 @@ public class Configuration
 	{
 		if (AFFICHER_TRACE && AFFICHER_TRACE_COMPLEMENT)
 		{
-			System.out.println("------------Début: " + object);
+			Affichage.afficher(("------------Début: " + object));
 		}
 	}
 
@@ -21,7 +21,7 @@ public class Configuration
 	{
 		if (AFFICHER_TRACE && AFFICHER_TRACE_COMPLEMENT)
 		{
-			System.out.println("------------Fin: " + object + "\n");
+			Affichage.afficher("------------Fin: " + object + "\n");
 		}
 	}
 
@@ -29,7 +29,7 @@ public class Configuration
 	{
 		if (AFFICHER_TRACE && AFFICHER_TRACE_COMPLEMENT)
 		{
-			System.out.println("-- " + object);
+			Affichage.afficher("-- " + object);
 		}
 	}
 
@@ -81,7 +81,7 @@ public class Configuration
 	{
 		if (AFFICHER_TRACE)
 		{
-			System.out.println("Ajout de : " + object);
+			Affichage.afficher("Ajout de : " + object);
 		}
 	}
 
@@ -89,7 +89,7 @@ public class Configuration
 	{
 		if (Configuration.AFFICHER_TRACE)
 		{
-			System.out.println("ERREUR d'ajout, element déjà présent : " + object);
+			Affichage.afficher("ERREUR d'ajout, element déjà présent : " + object);
 		}
 	}
 
@@ -97,7 +97,7 @@ public class Configuration
 	{
 		if (Configuration.AFFICHER_TRACE && Configuration.AFFICHER_TRACE_FAIT)
 		{
-			System.out.println("ERREUR d'ajout, fait déjà présent : " + object);
+			Affichage.afficher("ERREUR d'ajout, fait déjà présent : " + object);
 		}
 	}
 
@@ -105,7 +105,7 @@ public class Configuration
 	{
 		if (Configuration.AFFICHER_TRACE && Configuration.AFFICHER_TRACE_BUT)
 		{
-			System.out.println("ERREUR d'ajout, but déjà présent : " + object);
+			Affichage.afficher("ERREUR d'ajout, but déjà présent : " + object);
 		}
 	}
 
@@ -113,7 +113,7 @@ public class Configuration
 	{
 		if (Configuration.AFFICHER_TRACE && Configuration.AFFICHER_TRACE_REGLE && Configuration.AFFICHER_TRACE_REGLE_AUTRE)
 		{
-			System.out.println("ERREUR d'ajout, regle déjà présent : " + object);
+			Affichage.afficher("ERREUR d'ajout, regle déjà présent : " + object);
 		}
 	}
 
@@ -121,7 +121,7 @@ public class Configuration
 	{
 		if (Configuration.AFFICHER_TRACE && Configuration.AFFICHER_TRACE_LITTERAL)
 		{
-			System.out.println("ERREUR d'ajout, Litteral déjà présent : " + object);
+			Affichage.afficher("ERREUR d'ajout, Litteral déjà présent : " + object);
 		}
 	}
 
@@ -129,7 +129,7 @@ public class Configuration
 	{
 		if (AFFICHER_TRACE && AFFICHER_TRACE_BUT)
 		{
-			System.out.println("Ajout à la base de but de : " + object);
+			Affichage.afficher("Ajout à la base de but de : " + object);
 		}
 	}
 
@@ -137,7 +137,7 @@ public class Configuration
 	{
 		if (AFFICHER_TRACE && AFFICHER_TRACE_FAIT)
 		{
-			System.out.println("Ajout à la base de fait de : " + object);
+			Affichage.afficher("Ajout à la base de fait de : " + object);
 		}
 	}
 
@@ -145,7 +145,7 @@ public class Configuration
 	{
 		if (Configuration.AFFICHER_TRACE && AFFICHER_TRACE_FAIT)
 		{
-			System.out.println("ERREUR d'ajout, fait déjà présent : " + object);
+			Affichage.afficher("ERREUR d'ajout, fait déjà présent : " + object);
 		}
 	}
 
@@ -153,7 +153,7 @@ public class Configuration
 	{
 		if (Configuration.AFFICHER_TRACE && AFFICHER_TRACE_FAIT)
 		{
-			System.out.println("Ajout des faits à la base de fait : " + object);
+			Affichage.afficher("Ajout des faits à la base de fait : " + object);
 		}
 	}
 
@@ -161,7 +161,7 @@ public class Configuration
 	{
 		if (Configuration.AFFICHER_TRACE && AFFICHER_TRACE_REGLE && Configuration.AFFICHER_TRACE_REGLE_AUTRE)
 		{
-			System.out.println("Ajout à la base de regle de : " + object);
+			Affichage.afficher("Ajout à la base de regle de : " + object);
 		}
 	}
 
@@ -169,7 +169,7 @@ public class Configuration
 	{
 		if (Configuration.AFFICHER_TRACE && AFFICHER_TRACE_REGLE && Configuration.AFFICHER_TRACE_REGLE_AUTRE)
 		{
-			System.out.println("ERREUR d'ajout, regle déjà présente : " + object);
+			Affichage.afficher("ERREUR d'ajout, regle déjà présente : " + object);
 		}
 	}
 
@@ -177,7 +177,7 @@ public class Configuration
 	{
 		if (Configuration.AFFICHER_TRACE && AFFICHER_TRACE_REGLE && Configuration.AFFICHER_TRACE_REGLE_DECLENCHEMENT)
 		{
-			System.out.println("Déclenchement de la regle : " + object);
+			Affichage.afficher("Déclenchement de la regle : " + object);
 		}
 	}
 
@@ -185,7 +185,7 @@ public class Configuration
 	{
 		if (Configuration.AFFICHER_TRACE && AFFICHER_TRACE_REGLE && Configuration.AFFICHER_TRACE_REGLE_DECLENCHEMENT)
 		{
-			System.out.println("Erreur de déclenchement, règle déjà déclenché : " + object);
+			Affichage.afficher("Erreur de déclenchement, règle déjà déclenché : " + object);
 		}
 	}
 
@@ -193,7 +193,7 @@ public class Configuration
 	{
 		if (Configuration.AFFICHER_TRACE && AFFICHER_TRACE_REGLE && Configuration.AFFICHER_TRACE_REGLE_DECLENCHEMENT)
 		{
-			System.out.println("Erreur de déclenchement, règle déjà déclenché : " + object);
+			Affichage.afficher("Erreur de déclenchement, règle déjà déclenché : " + object);
 		}
 	}
 	
@@ -201,7 +201,7 @@ public class Configuration
 	{
 		if (Configuration.AFFICHER_TRACE && AFFICHER_TRACE_REGLE && Configuration.AFFICHER_TRACE_REGLE_DECLENCHEMENT)
 		{
-			System.out.println("Erreur de déclenchement, incohérence entre la base de fait et la conclusion : " + object);
+			Affichage.afficher("Erreur de déclenchement, incohérence entre la base de fait et la conclusion : " + object);
 		}
 	}
 
@@ -209,7 +209,7 @@ public class Configuration
 	{
 		if (Configuration.AFFICHER_TRACE && AFFICHER_TRACE_REGLE && Configuration.AFFICHER_TRACE_REGLE_DECLENCHEMENT)
 		{
-			System.out.println("Note : Déclehement inutile, conclusion déjà présente : " + object);
+			Affichage.afficher("Note : Déclehement inutile, conclusion déjà présente : " + object);
 		}
 	}
 
@@ -217,7 +217,7 @@ public class Configuration
 	{
 		if (Configuration.AFFICHER_TRACE && AFFICHER_TRACE_LITTERAL)
 		{
-			System.out.println("Ajout à la liste de litteral de : " + object);
+			Affichage.afficher("Ajout à la liste de litteral de : " + object);
 		}
 	}
 }
