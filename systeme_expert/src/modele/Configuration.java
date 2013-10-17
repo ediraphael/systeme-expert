@@ -60,16 +60,16 @@ public class Configuration
 	{
 		switch (base.getClass().toString())
 		{
-		case "class Base_de_but":
+		case "class modele.Base_de_but":
 			afficherTraceAjoutErreurDejaPresentBut(object);
 			break;
-		case "class Base_de_fait":
+		case "class modele.Base_de_fait":
 			afficherTraceAjoutErreurDejaPresentFait(object);
 			break;
-		case "class Base_de_regle":
+		case "class modele.Base_de_regle":
 			afficherTraceAjoutErreurDejaPresentRegle(object);
 			break;
-		case "class Litteral":
+		case "class modele.Litteral":
 			afficherTraceAjoutErreurDejaPresentLitteral(object);
 			break;
 		default:
