@@ -1,3 +1,4 @@
+package modele;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -65,7 +66,7 @@ public abstract class Base_abstrait
 		return retour;
 	}
 
-	protected void loadFile(String fichier)
+	public void loadFile(String fichier)
 	{
 		Configuration.afficherTraceComplementDebut(this.getTypeBase() + ":loadFile(" + fichier + ")");
 		try

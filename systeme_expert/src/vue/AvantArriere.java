@@ -1,23 +1,26 @@
 package vue;
 
 import javax.swing.*;
-import java.awt.*;
-import java.io.*;
-import java.awt.event.*;
-import java.applet.*;
 
+import modele.Chainage_arriere;
+import modele.Chainage_avant;
+
+import java.awt.*;
+import java.awt.event.*;
+
+@SuppressWarnings("serial")
 public class AvantArriere extends JPanel implements ActionListener
 {
-	JRadioButton avant = new JRadioButton("Avant  ", true);
-	JRadioButton arriere = new JRadioButton("Arriere", false);
+	private JRadioButton avant = new JRadioButton("Avant  ", true);
+	private JRadioButton arriere = new JRadioButton("Arriere", false);
 
-	public AvantArriere() 
+	public AvantArriere()
 	{
 		JLabel label = new JLabel("Chainage :");
 
 		avant.addActionListener(this);
-		arriere.addActionListener(this);		
-		
+		arriere.addActionListener(this);
+
 		ButtonGroup groupe = new ButtonGroup();
 		groupe.add(avant);
 		groupe.add(arriere);
@@ -32,14 +35,47 @@ public class AvantArriere extends JPanel implements ActionListener
 		add(panneau, BorderLayout.CENTER);
 	}
 
+	public JRadioButton getAvant()
+	{
+		return avant;
+	}
+
+	public void setAvant(JRadioButton avant)
+	{
+		this.avant = avant;
+	}
+
+	public JRadioButton getArriere()
+	{
+		return arriere;
+	}
+
+	public void setArriere(JRadioButton arriere)
+	{
+		this.arriere = arriere;
+	}
+
+	public boolean estAvant()
+	{
+		return this.avant.isSelected();
+	}
+	
+	public boolean estArriere()
+	{
+		return this.arriere.isSelected();
+	}
+	
 	public void actionPerformed(ActionEvent e)
 	{
-		if(e.getSource() == avant)
+		if (e.getSource() == avant)
 		{
 			System.out.println("avant");
-		}else if(e.getSource() == arriere)
+			SystemeExpert.setChainage(new Chainage_avant(SystemeExpert.getBase_regles(), SystemeExpert.getBase_faits(), SystemeExpert.getBase_buts()));
+
+		} else if (e.getSource() == arriere)
 		{
 			System.out.println("arriere");
+			SystemeExpert.setChainage(new Chainage_arriere(SystemeExpert.getBase_regles(), SystemeExpert.getBase_faits(), SystemeExpert.getBase_buts()));
 		}
 	}
 }

@@ -1,3 +1,4 @@
+package modele;
 import java.util.Vector;
 
 public class Chainage_arriere extends Chainage_abstrait
@@ -9,11 +10,14 @@ public class Chainage_arriere extends Chainage_abstrait
 
 	public void evaluer()
 	{
+		Configuration.afficherTraceComplementDebut("Chainage_arriere:evaluer()");
 		Vector<Element_base> but = this.getBase_buts().getButs();
+		Configuration.afficherTraceComplement("Ensemble de but : "+but);
 		for (Element_base element : but)
 		{
 			this.demo(element, this.getBase_faits());
 		}
+		Configuration.afficherTraceComplementFin("Chainage_arriere:evaluer()");
 	}
 
 	public boolean demo(Element_base but, Base_de_fait BF)

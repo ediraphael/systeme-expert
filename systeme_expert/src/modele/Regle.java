@@ -1,3 +1,4 @@
+package modele;
 import java.util.Vector;
 
 public class Regle

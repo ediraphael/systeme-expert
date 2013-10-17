@@ -1,3 +1,4 @@
+package modele;
 public class Litteral
 {
 	// poste_responsabilite, langue_facile, neerlandais_parle, anglais_parle,

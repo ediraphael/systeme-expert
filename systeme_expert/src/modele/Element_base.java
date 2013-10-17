@@ -1,3 +1,4 @@
+package modele;
 public class Element_base
 {
 	Litteral litteral;

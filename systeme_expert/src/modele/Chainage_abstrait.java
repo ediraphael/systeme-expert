@@ -1,3 +1,4 @@
+package modele;
 public abstract class Chainage_abstrait
 {
 	private Base_de_regle base_regles;

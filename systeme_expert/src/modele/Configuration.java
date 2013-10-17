@@ -1,3 +1,4 @@
+package modele;
 public class Configuration
 {
 	public static boolean AFFICHER_TRACE = false;
@@ -37,16 +38,16 @@ public class Configuration
 	{
 		switch (base.getClass().toString())
 		{
-		case "class Base_de_but":
+		case "class modele.Base_de_but":
 			afficherTraceAjoutBut(object);
 			break;
-		case "class Base_de_fait":
+		case "class modele.Base_de_fait":
 			afficherTraceAjoutFait(object);
 			break;
-		case "class Base_de_regle":
+		case "class modele.Base_de_regle":
 			afficherTraceAjoutRegle(object);
 			break;
-		case "class Litteral":
+		case "class modele.Litteral":
 			afficherTraceAjoutLitteral(object);
 			break;
 		default:

@@ -1,3 +1,4 @@
+package modele;
 public class Chainage_avant extends Chainage_abstrait
 {
 	public Chainage_avant(Base_de_regle regles, Base_de_fait faits, Base_de_but buts)

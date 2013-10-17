@@ -1,3 +1,4 @@
+package modele;
 import java.util.Vector;
 
 public class Base_de_but extends Base_abstrait
