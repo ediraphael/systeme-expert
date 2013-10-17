@@ -1,4 +1,5 @@
 package modele;
+
 import java.util.Vector;
 
 public class Regle
@@ -70,26 +71,26 @@ public class Regle
 	{
 		return this.getConclusion().contains(element);
 	}
-	
+
 	private Vector<Element_base> getConclusionInverse()
 	{
-		Vector<Element_base> element_inverse= new Vector<Element_base>();
+		Vector<Element_base> element_inverse = new Vector<Element_base>();
 		for (Element_base element_base : this.conclusion)
 		{
-			element_inverse.add(new Element_base(element_base.getLitteral(),!element_base.getEstNonElement()));
+			element_inverse.add(new Element_base(element_base.getLitteral(), !element_base.getEstNonElement()));
 		}
 		return element_inverse;
 	}
-	
+
 	public boolean estEnIncoherence(Vector<Element_base> base_faits)
 	{
 		Vector<Element_base> condition_inverse = this.getConclusionInverse();
-		boolean incoherence_base_conclusion=false;
+		boolean incoherence_base_conclusion = false;
 		for (Element_base element_base : base_faits)
 		{
-			if(condition_inverse.contains(element_base))
+			if (condition_inverse.contains(element_base))
 			{
-				incoherence_base_conclusion=true;
+				incoherence_base_conclusion = true;
 			}
 		}
 		return incoherence_base_conclusion;
@@ -102,7 +103,7 @@ public class Regle
 		{
 			if (base_faits.containsAll(this.condition))
 			{
-				if(!estEnIncoherence(base_faits))
+				if (!estEnIncoherence(base_faits))
 				{
 					Configuration.afficherTraceDeclenchementRegle(this);
 					if (base_faits.containsAll(this.conclusion))
@@ -111,7 +112,7 @@ public class Regle
 					}
 					this.setEstDeclenche(true);
 					base_faits.addAll(conclusion);
-				}else
+				} else
 				{
 					Configuration.afficherTraceErreurIncoherenceDeclenchementRegle(this);
 				}
@@ -129,26 +130,37 @@ public class Regle
 
 	public Vector<Element_base> declencher(Base_de_fait base_faits)
 	{
-		base_faits.setFaits(this.declencher(base_faits.getFaits()));
-		return base_faits.getFaits();
+		// base_faits.setFaits(this.declencher(base_faits.getFaits()));
+		// return base_faits.getFaits();
 
-		/*
-		 * Configuration.afficherTraceComplementDebut("Regle:declencher()"); if
-		 * (!this.estDeclenche) { if
-		 * (base_faits.getFaits().containsAll(this.condition)) {
-		 * Configuration.afficherTraceDeclenchementRegle(this);
-		 * if(base_faits.getFaits().containsAll(this.conclusion)) {
-		 * Configuration
-		 * .afficherTraceNoteDeclenchementInutileDeclenchementRegle(this); }
-		 * this.setEstDeclenche(true); base_faits.addAllFait(conclusion);
-		 * Configuration.afficherTraceComplementFin("Regle:declencher()");
-		 * return true; }else {
-		 * Configuration.afficherTraceErreurConditionsDeclenchementRegle(this);
-		 * } } else {
-		 * Configuration.afficherTraceErreurDejaDeclencherDeclenchementRegle
-		 * (this); } Configuration.afficherTraceComplementFin(
-		 * "Regle:declencher(Base_de_fait base_faits)"); return false;
-		 */
+		Configuration.afficherTraceComplementDebut("Regle:declencher()");
+		if (!this.estDeclenche)
+		{
+			if (base_faits.getFaits().containsAll(this.condition))
+			{
+				if (!estEnIncoherence(base_faits.getFaits()))
+				{
+					Configuration.afficherTraceDeclenchementRegle(this);
+					if (base_faits.getFaits().containsAll(this.conclusion))
+					{
+						Configuration.afficherTraceNoteDeclenchementInutileDeclenchementRegle(this);
+					}
+					this.setEstDeclenche(true);
+					base_faits.addAllFait(conclusion);
+				} else
+				{
+					Configuration.afficherTraceErreurIncoherenceDeclenchementRegle(this);
+				}
+			} else
+			{
+				Configuration.afficherTraceErreurConditionsDeclenchementRegle(this);
+			}
+		} else
+		{
+			Configuration.afficherTraceErreurDejaDeclencherDeclenchementRegle(this);
+		}
+		Configuration.afficherTraceComplementFin("Regle:declencher(Base_de_fait base_faits)");
+		return base_faits.getFaits();
 	}
 
 	@Override

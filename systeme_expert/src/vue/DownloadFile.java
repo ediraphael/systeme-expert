@@ -20,8 +20,8 @@ public class DownloadFile extends JPanel implements ActionListener
 		add(param, BorderLayout.EAST);
 		param.addActionListener(this);
 	}
-	
-	public DownloadFile(String name,String path)
+
+	public DownloadFile(String name, String path)
 	{
 		JLabel label = new JLabel(name);
 		setLayout(new BorderLayout(10, 10));
@@ -31,7 +31,7 @@ public class DownloadFile extends JPanel implements ActionListener
 		this.param.addActionListener(this);
 		this.path.setText(path);
 	}
-	
+
 	public String getPathText()
 	{
 		return this.path.getText();
@@ -42,7 +42,7 @@ public class DownloadFile extends JPanel implements ActionListener
 		if (e.getSource() == param)
 		{
 			JFileChooser dialogue = new JFileChooser(new File("."));
-			//PrintWriter sortie;
+			// PrintWriter sortie;
 			File fichier;
 
 			if (dialogue.showOpenDialog(null) == JFileChooser.APPROVE_OPTION)

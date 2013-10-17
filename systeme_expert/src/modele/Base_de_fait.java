@@ -42,11 +42,11 @@ public class Base_de_fait extends Base_abstrait
 		this.setElements(vec);
 	}
 
-	public Vector<Element_base> addAllFait(Vector<Element_base> litteraux)
+	public Vector<Element_base> addAllFait(Vector<Element_base> elements)
 	{
 		Vector<Element_base> retour = new Vector<Element_base>();
 		Element_base ob;
-		for (Element_base litteral : litteraux)
+		for (Element_base litteral : elements)
 		{
 			ob = (Element_base)this.addElement(litteral);
 			if (ob != null)

@@ -14,13 +14,13 @@ public class Interface_fenetre extends Interface_utilisateur
 	@Override
 	public String lireClavier_interface(String message)
 	{
-		return "";
+		return dialogue.afficher_message(message);
 	}
 
 	@Override
 	public boolean demanderBoolean_interface(String message)
 	{
-		return dialogue.afficher(message);
+		return dialogue.afficher_demande(message);
 	}
 
 }

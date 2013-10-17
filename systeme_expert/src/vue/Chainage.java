@@ -5,6 +5,7 @@ import javax.swing.*;
 import modele.Affichage;
 import modele.Chainage_arriere;
 import modele.Chainage_avant;
+import modele.Interface_utilisateur;
 
 import java.awt.*;
 import java.awt.event.*;
@@ -29,7 +30,6 @@ public class Chainage extends JPanel implements ActionListener
 			System.out.println("chainage");
 			Affichage.reset();
 			SystemeExpert.loadFichier();
-			SystemeExpert.base_faits.loadFile("base_fait.txt");
 			if (avar.estAvant())
 			{
 				SystemeExpert.setChainage(new Chainage_avant(SystemeExpert.getBase_regles(), SystemeExpert.getBase_faits(), SystemeExpert.getBase_buts()));
@@ -38,12 +38,10 @@ public class Chainage extends JPanel implements ActionListener
 			{
 				SystemeExpert.setChainage(new Chainage_arriere(SystemeExpert.getBase_regles(), SystemeExpert.getBase_faits(), SystemeExpert.getBase_buts()));
 			}
-			System.out.println("la1");
-			System.out.println(SystemeExpert.getChainage().getClass());
 			SystemeExpert.getChainage().evaluer();
-			System.out.println("la2");
 			SystemeExpert.getChainage().afficherEvolution();
-			System.out.println("la3");
+			Interface_utilisateur.lireClavier(SystemeExpert.getChainage().butEstAtteint()?"but("+SystemeExpert.getBase_buts().getButs()+"):atteint":"but("+SystemeExpert.getBase_buts().getButs()+"):non atteint");
+			
 		}
 	}
 }

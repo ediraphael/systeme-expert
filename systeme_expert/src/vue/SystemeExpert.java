@@ -5,6 +5,7 @@ import modele.*;
 import javax.swing.*;
 import java.awt.*;
 import java.io.*;
+import java.util.Vector;
 
 public class SystemeExpert
 {
@@ -63,9 +64,9 @@ public class SystemeExpert
 
 	public static void loadFichier()
 	{
-		base_regles = new Base_de_regle();
-		base_faits = new Base_de_fait();
-		base_buts = new Base_de_but();
+		base_regles.setRegles(new Vector<Regle>());
+		base_faits.setFaits(new Vector<Element_base>());
+		base_buts.setButs(new Vector<Element_base>());
 		base_regles.loadFile(dfbr.getPathText());
 		base_faits.loadFile(dfbf.getPathText());
 		base_buts.loadFile(dfb.getPathText());

@@ -23,8 +23,8 @@ public abstract class Interface_utilisateur
 		return INTERFACE.demanderBoolean_interface(message);
 	}
 
-	public static boolean lireClavier(String message)
+	public static String lireClavier(String message)
 	{
-		return INTERFACE.demanderBoolean_interface(message);
+		return INTERFACE.lireClavier_interface(message);
 	}
 }
