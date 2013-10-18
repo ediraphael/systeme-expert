@@ -9,7 +9,7 @@ import java.awt.event.*;
 public class DownloadFile extends JPanel implements ActionListener
 {
 	public JButton param = new JButton("parcourir");
-	private JTextField path = new JTextField(150);
+	private JTextField path = new JTextField(30);
 
 	public DownloadFile(String name)
 	{
