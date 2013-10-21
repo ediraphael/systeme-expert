@@ -93,6 +93,9 @@ public class AvantArriere extends JPanel implements ActionListener
 		} else if (e.getSource() == arriere)
 		{
 			System.out.println("arriere");
+		} else if (e.getSource() == avant)
+		{
+			System.out.println("arriere");
 		}
 	}
 }
