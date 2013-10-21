@@ -162,7 +162,8 @@ public class Base_de_regle extends Base_abstrait
 			}
 		} catch (IOException ex)
 		{
-			ex.printStackTrace();
+			//ex.printStackTrace();
+			Configuration.afficherTraceComplement("Erreur de chargement du fichier");
 		}
 		Configuration.afficherTraceComplementFin("Base_de_regle:loadFileBaseRegle");
 	}

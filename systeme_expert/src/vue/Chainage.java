@@ -45,8 +45,10 @@ public class Chainage extends JPanel implements ActionListener
 			}
 			SystemeExpert.getChainage().evaluer();
 			SystemeExpert.getChainage().afficherEvolution();
-			Interface_utilisateur.lireClavier(SystemeExpert.getChainage().butEstAtteint()?"but("+SystemeExpert.getBase_buts().getButs()+"):atteint":"but("+SystemeExpert.getBase_buts().getButs()+"):non atteint");
-			
+			if (!SystemeExpert.getBase_buts().getButs().isEmpty())
+			{
+				Interface_utilisateur.lireClavier(SystemeExpert.getChainage().butEstAtteint() ? "but(" + SystemeExpert.getBase_buts().getButs() + "):atteint" : "but(" + SystemeExpert.getBase_buts().getButs() + "):non atteint");
+			}
 		}
 	}
 }

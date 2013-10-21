@@ -102,7 +102,7 @@ public abstract class Base_abstrait
 			}
 		} catch (IOException ex)
 		{
-			Configuration.afficherTraceComplement("Erreur : " + ex.getMessage());
+			Configuration.afficherTraceComplement("Erreur de chargement du fichier");
 		}
 		Configuration.afficherTraceComplementFin(this.getTypeBase() + ":loadFile(" + fichier + ")");
 	}
