@@ -49,7 +49,7 @@ public class Chainage_arriere extends Chainage_abstrait
 		}
 
 		// 3eme cas si b n'est pas une conclusion
-		if (!dem && this.getBase_regles().getDemandable().contains(but))
+		if (!dem && this.getBase_regles().getDemandable().contains(but) && !this.getBase_faits().getFaits().contains(but.getElementInverse()))
 		{
 			// On demande à l'utilisateur si il peut faire partie de la base de
 			// fait
@@ -58,6 +58,9 @@ public class Chainage_arriere extends Chainage_abstrait
 			if (dem)
 			{
 				this.getBase_faits().addElement(but);
+			}else
+			{
+				this.getBase_faits().addElement(but.getElementInverse());
 			}
 		}
 

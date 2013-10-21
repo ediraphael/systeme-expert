@@ -77,7 +77,7 @@ public class Regle
 		Vector<Element_base> element_inverse = new Vector<Element_base>();
 		for (Element_base element_base : this.conclusion)
 		{
-			element_inverse.add(new Element_base(element_base.getLitteral(), !element_base.getEstNonElement()));
+			element_inverse.add(element_base.getElementInverse());
 		}
 		return element_inverse;
 	}

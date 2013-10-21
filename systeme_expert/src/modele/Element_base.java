@@ -36,6 +36,11 @@ public class Element_base
 		this.estNonElement = estNonElement;
 	}
 	
+	public Element_base getElementInverse()
+	{
+		return new Element_base(this.litteral,!this.estNonElement);
+	}
+	
 	public String toString()
 	{
 		return ((estNonElement)?"!":"")+litteral;
