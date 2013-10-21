@@ -71,20 +71,9 @@ public class SystemeExpert
 		base_faits.loadFile(dfbf.getPathText());
 		base_buts.loadFile(dfb.getPathText());
 	}
-
-	public static void main(String[] arg) throws IOException
+	
+	public static void lancerAffichage() throws IOException
 	{
-		Configuration.AFFICHER_TRACE = true;
-		Configuration.AFFICHER_TRACE_LITTERAL = false;
-		Configuration.AFFICHER_TRACE_FAIT = true;
-		Configuration.AFFICHER_TRACE_REGLE = true;
-		Configuration.AFFICHER_TRACE_REGLE_DECLENCHEMENT = true;
-		Configuration.AFFICHER_TRACE_REGLE_AUTRE = false;
-		Configuration.AFFICHER_TRACE_BUT = false;
-		Configuration.AFFICHER_TRACE_COMPLEMENT = false;
-		// Main modele
-
-		// Main vue
 		JFrame cadre = new javax.swing.JFrame("Systeme-expert : Motor Zero");
 
 		AvantArriere av = new AvantArriere();
@@ -142,5 +131,19 @@ public class SystemeExpert
 		cadre.pack();
 		cadre.setVisible(true);
 		cadre.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	}
+
+	public static void main(String[] arg) throws IOException
+	{
+		Configuration.AFFICHER_TRACE = true;
+		Configuration.AFFICHER_TRACE_LITTERAL = false;
+		Configuration.AFFICHER_TRACE_FAIT = true;
+		Configuration.AFFICHER_TRACE_REGLE = true;
+		Configuration.AFFICHER_TRACE_REGLE_DECLENCHEMENT = true;
+		Configuration.AFFICHER_TRACE_REGLE_AUTRE = false;
+		Configuration.AFFICHER_TRACE_BUT = false;
+		Configuration.AFFICHER_TRACE_COMPLEMENT = false;
+
+		SystemeExpert.lancerAffichage();
 	}
 }

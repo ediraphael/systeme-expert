@@ -9,12 +9,15 @@ public class Configuration
 	public static boolean AFFICHER_TRACE_BUT = true;
 	public static boolean AFFICHER_TRACE_LITTERAL = true;
 	public static boolean AFFICHER_TRACE_COMPLEMENT = false;
+	private static String DECALAGE_GRAND = "------------";
+	private static String DECALAGE_PETIT = "--";
+
 
 	public static void afficherTraceComplementDebut(Object object)
 	{
 		if (AFFICHER_TRACE && AFFICHER_TRACE_COMPLEMENT)
 		{
-			Affichage.afficher(("------------Début: " + object));
+			Affichage.afficher((DECALAGE_GRAND+"Début: " + object));
 		}
 	}
 
@@ -22,7 +25,7 @@ public class Configuration
 	{
 		if (AFFICHER_TRACE && AFFICHER_TRACE_COMPLEMENT)
 		{
-			Affichage.afficher("------------Fin: " + object + "\n");
+			Affichage.afficher(DECALAGE_GRAND+"Fin: " + object + "\n");
 		}
 	}
 
@@ -30,7 +33,7 @@ public class Configuration
 	{
 		if (AFFICHER_TRACE && AFFICHER_TRACE_COMPLEMENT)
 		{
-			Affichage.afficher("-- " + object);
+			Affichage.afficher(DECALAGE_PETIT+" " + object);
 		}
 	}
 
