@@ -20,7 +20,7 @@ public class Chainage_arriere extends Chainage_abstrait
 		Configuration.afficherTraceComplementFin("Chainage_arriere:evaluer()");
 	}
 
-	public boolean demo(Element_base but, Base_de_fait BF)
+	private boolean demo(Element_base but, Base_de_fait BF)
 	{
 		Configuration.afficherTraceComplementDebut("Chainage_arriere:demo but:" + but);
 		boolean dem = false;
@@ -69,7 +69,7 @@ public class Chainage_arriere extends Chainage_abstrait
 		return dem;
 	}
 
-	public boolean verif(Vector<Element_base> but, Base_de_fait BF)
+	private boolean verif(Vector<Element_base> but, Base_de_fait BF)
 	{
 		Configuration.afficherTraceComplementDebut("Chainage_arriere:verif but:"+but);
 		boolean ver = true;
