@@ -1,5 +1,4 @@
 package modele;
-import java.util.Vector;
 
 public class Chainage_mixte extends Chainage_abstrait
 {
