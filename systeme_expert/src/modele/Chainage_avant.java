@@ -1,4 +1,5 @@
 package modele;
+
 public class Chainage_avant extends Chainage_abstrait
 {
 	public Chainage_avant(Base_de_regle regles, Base_de_fait faits, Base_de_but buts)
@@ -13,7 +14,7 @@ public class Chainage_avant extends Chainage_abstrait
 		boolean dec = false;
 		// int nbinf = 0;
 
-		while (inf && !this.getBase_faits().getFaits().containsAll(this.getBase_buts().getElements()))
+		while (inf && (!this.getBase_faits().getFaits().containsAll(this.getBase_buts().getElements()) || this.getBase_buts().getElements().isEmpty()))
 		{
 			inf = false;
 			for (Regle regle : this.getBase_regles().getRegles())
