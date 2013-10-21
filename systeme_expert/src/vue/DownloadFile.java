@@ -14,7 +14,7 @@ public class DownloadFile extends JPanel implements ActionListener
 	public DownloadFile(String name)
 	{
 		JLabel label = new JLabel(name);
-		setLayout(new BorderLayout(10, 10));
+		setLayout(new BorderLayout());
 		add(label, BorderLayout.NORTH);
 		add(path, BorderLayout.CENTER);
 		add(param, BorderLayout.EAST);
@@ -24,7 +24,7 @@ public class DownloadFile extends JPanel implements ActionListener
 	public DownloadFile(String name, String path)
 	{
 		JLabel label = new JLabel(name);
-		setLayout(new BorderLayout(10, 10));
+		setLayout(new BorderLayout());
 		add(label, BorderLayout.NORTH);
 		add(this.path, BorderLayout.CENTER);
 		add(this.param, BorderLayout.EAST);
