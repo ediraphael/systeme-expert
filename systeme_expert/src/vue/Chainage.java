@@ -15,11 +15,14 @@ import java.awt.event.*;
 public class Chainage extends JPanel implements ActionListener
 {
 	private JButton chainage = new JButton("START");
+	private JButton clear = new JButton("CLEAR");
 	private AvantArriere avar;
 
 	public Chainage(AvantArriere avar)
 	{
+		add(clear, BorderLayout.WEST);
 		add(chainage, BorderLayout.CENTER);
+		clear.addActionListener(this);
 		chainage.addActionListener(this);
 		this.avar = avar;
 	}
@@ -49,6 +52,9 @@ public class Chainage extends JPanel implements ActionListener
 			{
 				Interface_utilisateur.lireClavier(SystemeExpert.getChainage().butEstAtteint() ? "but(" + SystemeExpert.getBase_buts().getButs() + "):atteint" : "but(" + SystemeExpert.getBase_buts().getButs() + "):non atteint");
 			}
+		}else if (e.getSource() == clear)
+		{
+			Affichage.reset();
 		}
 	}
 }
