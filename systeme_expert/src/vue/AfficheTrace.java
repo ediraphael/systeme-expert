@@ -14,7 +14,7 @@ class AfficheTrace extends JPanel
 
 		JScrollPane texteAsc;
 		grandeZone = new JEditorPane("Affichage des traces", "");
-		grandeZone.setEditable(true);
+		grandeZone.setEditable(false);
 		texteAsc = new JScrollPane(grandeZone);
 		texteAsc.setPreferredSize(new Dimension(600, 300));
 		add(texteAsc, BorderLayout.CENTER);
