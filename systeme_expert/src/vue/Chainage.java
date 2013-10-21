@@ -5,6 +5,7 @@ import javax.swing.*;
 import modele.Affichage;
 import modele.Chainage_arriere;
 import modele.Chainage_avant;
+import modele.Chainage_mixte;
 import modele.Interface_utilisateur;
 
 import java.awt.*;
@@ -37,6 +38,10 @@ public class Chainage extends JPanel implements ActionListener
 			if (avar.estArriere())
 			{
 				SystemeExpert.setChainage(new Chainage_arriere(SystemeExpert.getBase_regles(), SystemeExpert.getBase_faits(), SystemeExpert.getBase_buts()));
+			}
+			if (avar.estMixte())
+			{
+				SystemeExpert.setChainage(new Chainage_mixte(SystemeExpert.getBase_regles(), SystemeExpert.getBase_faits(), SystemeExpert.getBase_buts()));
 			}
 			SystemeExpert.getChainage().evaluer();
 			SystemeExpert.getChainage().afficherEvolution();
